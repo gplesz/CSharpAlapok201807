@@ -77,7 +77,9 @@ A programozási alapegység a szál, egy szálon történő lépéseket programo
 - HEAP (halom)
 - STACK (verem)
 
-
+## Változótípusok
+- értéktípus
+- referenciatípus
 
 
 
