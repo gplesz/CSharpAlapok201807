@@ -95,6 +95,36 @@
             //vagyis: a szöveg ÉRTÉKTÍPUSKÉNT viselkedik!!!
 
 
+            //saját összetett értéktípus
+
+            var sajatertek1 = new SajatErtek();
+            sajatertek1.ertek = 10;
+            sajatertek1.referencia = new SajatReferencia { ertek = 10 };
+
+
+            //az előző definíció megegyezik ezzel
+            //var sajatertek1 = new SajatErtek
+            //{
+            //    ertek = 10
+            //};
+
+            var sajatertek2 = sajatertek1;
+
+            System.Console.WriteLine($"sajatertek1.ertek: {sajatertek1.ertek}, sajatertek2.ertek: {sajatertek2.ertek}");
+            //sajatertek1.ertek: 10, sajatertek2.ertek: 10
+            System.Console.WriteLine($"sajatertek1.referencia.ertek: {sajatertek1.referencia.ertek}, sajatertek2.referencia.ertek: {sajatertek2.referencia.ertek}");
+            //sajatertek1.referencia.ertek: 10, sajatertek2.referencia.ertek: 10
+
+            sajatertek1.ertek = 20;
+            sajatertek1.referencia.ertek = 20;
+
+            System.Console.WriteLine($"sajatertek1.ertek: {sajatertek1.ertek}, sajatertek2.ertek: {sajatertek2.ertek}");
+            //sajatertek1.ertek: 20, sajatertek2.ertek: 10
+            System.Console.WriteLine($"sajatertek1.referencia.ertek: {sajatertek1.referencia.ertek}, sajatertek2.referencia.ertek: {sajatertek2.referencia.ertek}");
+            //sajatertek1.referencia.ertek: 20, sajatertek2.referencia.ertek: 20
+
+            //vagyis, a struct kulcsszóval létrehozott változó értéktípusként viselkedik
+            //DE az értéktípusban szereplő referenciatípus TOVÁBBRA IS referenciatípusként viselkedik!!!
 
 
             //várunk a végén egy enter lenyomására

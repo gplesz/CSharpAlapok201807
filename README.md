@@ -109,11 +109,46 @@ A programozási alapegység a szál, egy szálon történő lépéseket programo
 
 ```
  
+Saját értéktípuson (struct) belüli referenciatípus viselkedése
+
+```
+                SajatErtek
+               +---------------------+
+               |                     |
+               |    ertek=10         |
+               |                     |
+sajatertek1    |                     |
+               |    referencia +-------------------------+          SajatReferencia
+   +           |                     |                   |        +------------------------------+
+   |           |                     |                   |        |                              |
+   +-------->  |                     |                   |        |                              |
+               |                     |                   |        |   ertek=10                   |
+               +---------------------+                   |        |                              |
+                                                         <----->  |                              |
+                SajatErtek                               |        |                              |
+               +---------------------+                   |        |                              |
+               |                     |                   |        |                              |
+               |    ertek=10         |                   |        |                              |
+               |                     |                   |        |                              |
+sajatertek2    |                     |                   |        +------------------------------+
+   +           |    referencia +-------------------------+
+   |           |                     |
+   +-------->  |                     |
+               |                     |
+               |                     |
+               +---------------------+
+
+                                    var sajatertek2 = sajatertek1;
+
+```
 
 
 ## 1. Házi feladat
 - karakterekből álló tömb viselkedését kipróbálni 
 
-```csharp
-var szoveg = new char[] {'1', '0' };
-```
+	```csharp
+	var szoveg = new char[] {'1', '0' };
+	```
+
+- értéktípuson (struct) belüli értéktípus (struct) mező viselkedését kipróbálni
+
