@@ -108,4 +108,12 @@ A programozási alapegység a szál, egy szálon történő lépéseket programo
     ertek1                ertek2                                 referencia1            referencia2
 
 ```
-  
+ 
+
+
+## 1. Házi feladat
+- karakterekből álló tömb viselkedését kipróbálni 
+
+```csharp
+var szoveg = new char[] {'1', '0' };
+```
