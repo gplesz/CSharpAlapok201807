@@ -21,7 +21,7 @@
             //ertek1: 10, ertek2: 10
 
 
-            //ezek hogyan viszonyulnak egymáshoz???
+            //KÉRDÉS: ezek hogyan viszonyulnak egymáshoz???
 
             ertek1 = 20;
 
@@ -39,8 +39,26 @@
 
             //értéktípusok: promitív típusok, számok, logikai értékek, enum.
 
-            System.Console.ReadLine(); 
 
+            //referenciatípus
+            var referencia1 = new SajatReferencia();
+            referencia1.ertek = 10;
+
+
+            var referencia2 = referencia1;
+
+            System.Console.WriteLine($"referencia1.ertek: {referencia1.ertek}, referencia2.ertek: {referencia2.ertek}");
+            //referencia1.ertek: 10, referencia2.ertek: 10
+
+            //KÉRDÉS: ezek hogyan viszonyulnak egymáshoz???
+            referencia1.ertek = 20;
+            System.Console.WriteLine($"referencia1.ertek: {referencia1.ertek}, referencia2.ertek: {referencia2.ertek}");
+            //referencia1.ertek: 20, referencia2.ertek: 20
+
+
+
+            //várunk a végén egy enter lenyomására
+            System.Console.ReadLine();
 
         }
     }
