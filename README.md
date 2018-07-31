@@ -171,6 +171,10 @@ vagy néhány másodpercen belül lefagy a gépem.
   - viszont a túlzott használata teljesétmény és memóriakérdéseket vet föl
 
 
+## Tennivalók, telepítendők
+- [Linux subsystem for Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+	
+- [Docker for Windows használata](https://www.docker.com/docker-windows)
 
 
 
