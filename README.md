@@ -70,7 +70,7 @@ A magas szinten megfolgalmazott feladataikat és megoldásaikat áttranszformál
 
 Alkalmazás => folyamat (process) -> szálak (thread) -> verem (stack)
 
-Az alkalmazéás futtatásához az operációs rendszer egy folyamatot indít (process)
+Az alkalmazás futtatásához az operációs rendszer egy folyamatot indít (process)
 A programozási alapegység a szál, egy szálon történő lépéseket programozunk általában.
 
 ## Az alkamazás által használt memóriák
@@ -141,6 +141,37 @@ sajatertek2    |                     |                   |        +-------------
                                     var sajatertek2 = sajatertek1;
 
 ```
+
+### Példa
+Gondolatkísérlet: Egy webkamera képét szeretnénk megjeleníteni egy ablakban. A kamerakép mozgókép, ez azt jelenti, 
+hogy mondjuk 20 fps (másodpercenként 20 képkocka) sebességgel el kell kérni az aktuális képet (mondjuk bitmap) a kamerától,
+és meg kell jelenítenünk a képernyőn. Utána nincs szükség erre a képre, tehát ez csak egy átmeneti tárolás.
+
+Mi történik, ha
+- referenciatípusként
+- értéktípusként gondolunk a képre?
+
+#### Referenciatípus esetén
+nem jön létre új példány, a kamerától elkért referenciát a képrenyő kiolvassa és kész.
+
+#### Értéktípus esetén
+minden egyes alkalommal létrejön egy új példány. (HD kép esetény 1024x768x8 a mérete a tárterületnek, 
+másodpercenkén 20x, ez 786432x20 byte másodpercenként, ami 15.728.640 byte/sec ami kb 15GB/sec).
+
+Ez azt jelenti, hogy nagyon komoly memória karbantartó infrastruktúrát kell kiépítenem, 
+vagy néhány másodpercen belül lefagy a gépem.
+
+#### Előnyök/hátrányok
+- a referenciatípus
+  - spórol a memóriával
+  - viszont többszörös hivatkozás esetén vigyázni kell, mert egyik hivatkozás átirhatja az összes többi
+    hivatkozás által nyilvántartott értékekeket.
+- az értéktípus
+  - nem okoz "áthallást", minden változó önmagáért felel
+  - viszont a túlzott használata teljesétmény és memóriakérdéseket vet föl
+
+
+
 
 
 ## 1. Házi feladat
