@@ -1,4 +1,6 @@
-﻿namespace _01Valtozok
+﻿using System.Text;
+
+namespace _01Valtozok
 {
     class Program
     {
@@ -126,6 +128,25 @@
             //vagyis, a struct kulcsszóval létrehozott változó értéktípusként viselkedik
             //DE az értéktípusban szereplő referenciatípus TOVÁBBRA IS referenciatípusként viselkedik!!!
 
+            // a STRING típus referenciatípus, de értéktípusként viselkedik
+            // ezért jó példa az értéktípus használatára
+
+
+            //rossz példa az értéktípusként viselkedő változók használatára
+            //ezzel folyamatosan új példányokat hozunk létre, amit a .NET keretrendszernek aztán
+            //karban kell tartania
+            //var szoveg = "";
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    szoveg = szoveg + new string('A', 10000);
+            //}
+
+            //jó példa: erre létrehozott osztállyal végezzük a feladatot
+            var sb = new StringBuilder();
+            for (int i = 0; i < 10000; i++)
+            {
+                sb.Append(new string('A', 10000));
+            }
 
             //várunk a végén egy enter lenyomására
             System.Console.ReadLine();
