@@ -33,8 +33,8 @@
             //akkor egy új jön létre, és az értékét másolja le
 
 
-            //értéktípus esetén az értékadás működése:
-            //minden alkalommal létrejön egy új változó a balodlai értékkel,
+            //ÉRTÉKTÍPUS esetén az értékadás működése:
+            //minden alkalommal létrejön egy új változó az egyenlőségjel baloldalán álló értékkel,
             //és ez az új változó kerül a baloldalon álló változóhivatkozásba.
 
             //értéktípusok: promitív típusok, számok, logikai értékek, enum.
@@ -55,6 +55,9 @@
             System.Console.WriteLine($"referencia1.ertek: {referencia1.ertek}, referencia2.ertek: {referencia2.ertek}");
             //referencia1.ertek: 20, referencia2.ertek: 20
 
+            //REFERENCIATÍPUS esetén az értékadás működése
+            //az egyenlőségjel jobboldalán álló kifejezés értékét
+            //beírja a baloldali változóba
 
 
             //várunk a végén egy enter lenyomására
