@@ -59,6 +59,43 @@
             //az egyenlőségjel jobboldalán álló kifejezés értékét
             //beírja a baloldali változóba
 
+            //összetett _beépített_ típusok példái:
+
+            //számokból álló tömb
+            //ez az írásmód ugyanazt az eredményt adja, mint az előző
+            //int[] tomb1 = { 0 };
+            var tomb1 = new int[] { 10 };
+
+            var tomb2 = tomb1;
+
+            System.Console.WriteLine($"tomb1: {tomb1[0]}, tomb2: {tomb2[0]}");
+            //tomb1: 10, tomb2: 10
+            tomb1[0] = 20;
+
+            System.Console.WriteLine($"tomb1: {tomb1[0]}, tomb2: {tomb2[0]}");
+            //tomb1: 20, tomb2: 20
+            //Tehát: a tömb típus, az refenciatípus
+
+            //karakterekből álló tömb, "teljes" definíció
+            var szoveg1 = new string(new char[] { '1', '0' });
+
+            //valójában ezt használjuk
+            //var szoveg1 = "10";
+
+            var szoveg2 = szoveg1;
+
+            System.Console.WriteLine($"szoveg1: {szoveg1}, szoveg2: {szoveg2}");
+            //szoveg1: 10, szoveg2: 10
+
+            szoveg1 = "20";
+
+            System.Console.WriteLine($"szoveg1: {szoveg1}, szoveg2: {szoveg2}");
+            //szoveg1: 20, szoveg2: 10
+
+            //vagyis: a szöveg ÉRTÉKTÍPUSKÉNT viselkedik!!!
+
+
+
 
             //várunk a végén egy enter lenyomására
             System.Console.ReadLine();
