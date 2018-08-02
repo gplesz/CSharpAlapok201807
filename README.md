@@ -290,3 +290,32 @@ A Microsoft tanácsa a következő:
 - ha új fejlesztésbe kezd az ember, és NEM desktop, akkor használjon .NET Core/ASP.NET Core környezetet, mert ez már alkalmas produkciós fejlesztésre
 - ha meglévő fejlesztése van, vagy speciális Windows fejlesztésről van szó, vagy Desktop fejlesztésről, vagy olyan nuget csomagot kell felhasználnunk, aminek nincs .NET Core támogatása, akkor használjunk teljes .NET-et
 - ha desktop multiplatformot akarunk, akkor érdemes elgondolkodni a Xamarin környezeten, wagy valamilyen kliens oldali webes környezeten (ionic, angular, react, stb.)
+
+## Feladatok
+- [X] Az előző alkalom kódjának futtatása Ubuntu-n
+  - [X] mivel az a kód .NET Framework (teljes környezet) környezetre készült, ezért nem fut linuxon
+  - [X] készítünk egy .NET Core (multiplatform környezet) alkalmazást, amibe átmásoljuk a teljes kódot
+  - [X] commit+push segítségével felküldjük a GitHub kódtárba
+  - [X] (Clone és) pull segítségével letöltjük az ubuntura
+  - [X] **dotnet run** paranccsal futtatjuk:
+
+```
+    gplesz@windows10:~/repos/CSharpAlapok201807/01Nap$ cd ../02Nap/
+    gplesz@windows10:~/repos/CSharpAlapok201807/02Nap$ ls
+    01ValtozokCore
+    gplesz@windows10:~/repos/CSharpAlapok201807/02Nap$ cd 01ValtozokCore/
+    gplesz@windows10:~/repos/CSharpAlapok201807/02Nap/01ValtozokCore$ dotnet run
+    ertek1: 10, ertek2: 10
+    ertek1: 20, ertek2: 10
+    referencia1.ertek: 10, referencia2.ertek: 10
+    referencia1.ertek: 20, referencia2.ertek: 20
+    tomb1: 10, tomb2: 10
+    tomb1: 20, tomb2: 20
+    szoveg1: 10, szoveg2: 10
+    szoveg1: 20, szoveg2: 10
+    sajatertek1.ertek: 10, sajatertek2.ertek: 10
+    sajatertek1.referencia.ertek: 10, sajatertek2.referencia.ertek: 10
+    sajatertek1.ertek: 20, sajatertek2.ertek: 10
+    sajatertek1.referencia.ertek: 20, sajatertek2.referencia.ertek: 20
+```
+
