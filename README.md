@@ -354,3 +354,9 @@ A Microsoft tanácsa a következő:
     sajatertek1.referencia.ertek: 20, sajatertek2.referencia.ertek: 20
 ```
 
+## Feladatok
+- [X] olyan alkalmazás készítése, ahol különböző síkidomok területét ki tudjuk számolni
+  - [X] négyzet
+  - [X] háromszög
+  - [X] kör
+- [ ] olyan algoritmus kidolgozása, ami a különböző síkidomok területeit képes összeadni
