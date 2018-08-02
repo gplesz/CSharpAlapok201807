@@ -11,9 +11,9 @@ namespace _02SikidomokTerulete
             this.radius = radius;
         }
 
-        public double Area()
+        public int Area()
         {
-            return 2 * radius * Math.PI;
+            return (int)(2 * radius * Math.PI);
         }
     }
 }

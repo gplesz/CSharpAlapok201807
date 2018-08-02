@@ -360,3 +360,14 @@ A Microsoft tanácsa a következő:
   - [X] háromszög
   - [X] kör
 - [ ] olyan algoritmus kidolgozása, ami a különböző síkidomok területeit képes összeadni
+  - [ ] hogy lehet a kör területét (*double* típus egyformán kezelni az *int* típusokkal)? két lehetőség
+    - "lebutítjuk" a kör területét *int*-re, 
+    - "felokosítjuk" a többit *double*-ra
+
+
+
+
+
+
+## 2. Házi feladat
+- "felokosítani" minden Area() függvényt *double* visszadott értékre

@@ -19,6 +19,18 @@ namespace _02SikidomokTerulete
             var triangle = new Triangle(trianglebase: 6, height: 4);
             Console.WriteLine($"A háromszög területe: {triangle.Area()}");
 
+            //területek összeadása
+            var areasum = square.Area();
+
+            areasum = areasum + circle.Area();
+
+            //az előző műveletet rövidítve így lehet leírni
+            areasum += triangle.Area();
+
+            // hogy lehetne ezt profibban elvégezni???
+            // mi van, ha 300 síkidom területét kell összeadni?
+
+
             Console.ReadLine();
         }
     }
