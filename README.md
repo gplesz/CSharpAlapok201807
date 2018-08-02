@@ -227,7 +227,53 @@ vagy néhány másodpercen belül lefagy a gépem.
     gplesz@windows10:~/repos$
   ```
 
-- [ ] DotNet telepítése [innen](https://www.microsoft.com/net/learn/get-started-with-dotnet-tutorial)
+- [X] DotNet telepítése [innen](https://www.microsoft.com/net/learn/get-started-with-dotnet-tutorial)
+  A következő négy parancsot kell kiadni a .NET környezet telepítéséhez Ubuntu-n:
 
-- [ ] 
-- [ ] 
+  két paranccsal telepítjük a szükséges kulcsot (egy gépen csak egyszer kell ezt elvégezni)
+  ```
+    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
+  ```
+  
+  lefuttatjuk a csomagok frissítését az Ubuntu-n, mielőtt telepítjük a dotnet SDK-t:
+  ```
+    sudo apt-get install apt-transport-https
+    sudo apt-get update
+  ```
+
+  majd ezzel telepítjük végül a dotnet sdk-t:
+  ```
+    sudo apt-get install dotnet-sdk-2.1
+  ```
+
+
+  végükl a **dotnet --info** paranccsal ellenőrizzük a dotnet sdk meglétét:
+  ```
+    gplesz@windows10:~/repos$ dotnet --info
+    .NET Core SDK (reflecting any global.json):
+     Version:   2.1.302
+     Commit:    9048955601
+
+    Runtime Environment:
+     OS Name:     ubuntu
+     OS Version:  18.04
+     OS Platform: Linux
+     RID:         ubuntu.18.04-x64
+     Base Path:   /usr/share/dotnet/sdk/2.1.302/
+
+    Host (useful for support):
+      Version: 2.1.2
+      Commit:  811c3ce6c0
+
+    .NET Core SDKs installed:
+      2.1.302 [/usr/share/dotnet/sdk]
+
+    .NET Core runtimes installed:
+      Microsoft.AspNetCore.All 2.1.2 [/usr/share/dotnet/shared/Microsoft.AspNetCore.All]
+      Microsoft.AspNetCore.App 2.1.2 [/usr/share/dotnet/shared/Microsoft.AspNetCore.App]
+      Microsoft.NETCore.App 2.1.2 [/usr/share/dotnet/shared/Microsoft.NETCore.App]
+
+    To install additional .NET Core runtimes or SDKs:
+      https://aka.ms/dotnet-download
+  ```
