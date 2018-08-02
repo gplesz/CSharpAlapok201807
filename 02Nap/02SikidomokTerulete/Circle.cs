@@ -2,7 +2,7 @@
 
 namespace _02SikidomokTerulete
 {
-    public class Circle
+    public class Circle : IPlane
     {
         private int radius;
 

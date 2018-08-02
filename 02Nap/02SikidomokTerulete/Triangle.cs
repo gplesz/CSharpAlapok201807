@@ -2,7 +2,7 @@
 
 namespace _02SikidomokTerulete
 {
-    public class Triangle
+    public class Triangle : IPlane
     {
         private int trianglebase;
         private int height;
