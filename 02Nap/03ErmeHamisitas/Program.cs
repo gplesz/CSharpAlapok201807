@@ -6,13 +6,15 @@ namespace _03ErmeHamisitas
     {
         static void Main(string[] args)
         {
-            var coin = new Coin();
+            Coin coin = new FakeCoin();
 
             Console.WriteLine("Az érmefeldobások eredménye:");
             for (int i = 0; i < 100; i++)
             {
                 Console.Write($"{coin.Collect()},");
             }
+
+            
 
             Console.ReadLine();
         }

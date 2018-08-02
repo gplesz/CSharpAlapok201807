@@ -359,10 +359,53 @@ A Microsoft tanácsa a következő:
   - [X] négyzet
   - [X] háromszög
   - [X] kör
-- [ ] olyan algoritmus kidolgozása, ami a különböző síkidomok területeit képes összeadni
-  - [ ] hogy lehet a kör területét (*double* típus egyformán kezelni az *int* típusokkal)? két lehetőség
+- [X] olyan algoritmus kidolgozása, ami a különböző síkidomok területeit képes összeadni
+  - [X] hogy lehet a kör területét (*double* típus egyformán kezelni az *int* típusokkal)? két lehetőség
     - "lebutítjuk" a kör területét *int*-re, 
     - "felokosítjuk" a többit *double*-ra
+- [X] érmefeldobás osztály segítségével szimulálni az érmék feldobását
+- [ ] hamis érmét gyártani, ami mindig csak fejre esik.
+
+Ha a leszármaztatott osztályt az ősosztály felületén keresztül szólítom, a hívás nem fog elmenni
+a leszármaztatott osztályig, a C# (leszármaztatási) osztályhierarhia nem "hamisítható".
+
+```
+                  +------------------------------+                                 +--------------------------+               +
+                  | FakeCoin                     |                                 | Coin                     |               |
++                 +------------------------------+                                 +--------------------------+               |
+|                 |                              |                                 |                          |               |
+|                 |                              |                                 |                          |               |
+|                 |                              | +---------------------------->  |                          |               |
+|                 |                              |                                 |                          |               |
+|                 |                              |                                 |                          |               |
+|                 +-----------+                  |                                 |                          |               |
++------------->   | Collect() | +------------------------------------------------> |  Collect()               |  <------------++
+                  +-----------+ <------------------------------------------------+ |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  | new Collect()                |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  |                              |                                 |                          |
+                  +------------------------------+                                 +--------------------------+
+
+```
+
+
+Ahhoz, hogy hamísítani lehessen, az ősosztályban a felülírható dolgokat **virtual** kulcsszóval kell ellátni.
+
+
 
 
 
