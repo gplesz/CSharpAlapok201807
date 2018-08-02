@@ -187,3 +187,47 @@ vagy néhány másodpercen belül lefagy a gépem.
 
 - értéktípuson (struct) belüli értéktípus (struct) mező viselkedését kipróbálni
 
+## Feladatok
+- [X] Ubuntu linux telepítés véglegesítése
+  elindítjuk a konzolt, megkérdezi a super user nevét és jelszavát, majd elvégzi a szükséges beállításokat.
+  ```shell
+    Installing, this may take a few minutes...
+    Please create a default UNIX user account. The username does not need to match your Windows username.
+    For more information visit: https://aka.ms/wslusers
+    Enter new UNIX username: gplesz
+    Enter new UNIX password:
+    Retype new UNIX password:
+    passwd: password updated successfully
+    Installation successful!
+    To run a command as administrator (user "root"), use "sudo <command>".
+    See "man sudo_root" for details.
+  ```
+  lekérdezzük az ubuntu verziószámát, 
+  ```shell
+    gplesz@windows10:~$ lsb_release -a
+    No LSB modules are available.
+    Distributor ID: Ubuntu
+    Description:    Ubuntu 18.04 LTS
+    Release:        18.04
+    Codename:       bionic
+  ```
+
+  ellenőrizzük git meglétét, létrehozunk egy könyvtárat, majd lemásoljuk a kódtárunkat az ubuntu rendszerbe:
+  ```shell
+    gplesz@windows10:~$ git --version
+    git version 2.17.0
+    gplesz@windows10:~$ mkdir repos
+    gplesz@windows10:~$ cd repos/
+    gplesz@windows10:~/repos$ git clone https://github.com/gplesz/CSharpAlapok201807.git
+    Cloning into 'CSharpAlapok201807'...
+    remote: Counting objects: 65, done.
+    remote: Compressing objects: 100% (44/44), done.
+    remote: Total 65 (delta 20), reused 55 (delta 14), pack-reused 0
+    Unpacking objects: 100% (65/65), done.
+    gplesz@windows10:~/repos$
+  ```
+
+- [ ] DotNet telepítése [innen](https://www.microsoft.com/net/learn/get-started-with-dotnet-tutorial)
+
+- [ ] 
+- [ ] 
