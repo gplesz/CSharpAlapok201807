@@ -291,6 +291,8 @@ A Microsoft tanácsa a következő:
 - ha meglévő fejlesztése van, vagy speciális Windows fejlesztésről van szó, vagy Desktop fejlesztésről, vagy olyan nuget csomagot kell felhasználnunk, aminek nincs .NET Core támogatása, akkor használjunk teljes .NET-et
 - ha desktop multiplatformot akarunk, akkor érdemes elgondolkodni a Xamarin környezeten, wagy valamilyen kliens oldali webes környezeten (ionic, angular, react, stb.)
 
+
+
 ## Feladatok
 - [X] Az előző alkalom kódjának futtatása Ubuntu-n
   - [X] mivel az a kód .NET Framework (teljes környezet) környezetre készült, ezért nem fut linuxon
@@ -300,6 +302,39 @@ A Microsoft tanácsa a következő:
   - [X] **dotnet run** paranccsal futtatjuk:
 
 ```
+                                                                     GitHub
+                                                           +--------------------------------------------+
+                                                           |                                            |
+                                                           |                                            |
+                              +------------------------->  |                                            |
+                              |                            |                                            |
+                              |                            |                                            |
+                              |   1. Commit                |                                            |
+                              |   2. Push                  +------------------------------------------+-+
+                              |                                                                       |
+                              |                                                                       | 1. Clone (lemásoltuk
+     Számítógép (Local)       |                                                                       | a teljes kódtárat)
++---------------------------------------------------------------------------------------------------------------------------+
+|                             +                                                                       |                     |
+|                                                                                                     | 2. Pull (a          |
+|                Kódtár (repository)                                                                  | legfrissebb kód     |
+|               +----------------------+                                                              v letöltése)          |
+|               |                      |                                                 Ubuntu                             |
+|               |                      |                                               +--------------------------+         |
+|               |                      |                                               |                          |         |
+|               |                      |                                               |                          |         |
+|               |                      |                                               |                          |         |
+|               |                      |                                               |                          |         |
+|               +----------------------+                                               |                          |         |
+|                                                                                      |                          |         |
+|                                                                                      |                          |         |
+|                                                                                      |                          |         |
+|                                                                                      +--------------------------+         |
+|                                                                                                                           |
++---------------------------------------------------------------------------------------------------------------------------+
+```
+
+```shell
     gplesz@windows10:~/repos/CSharpAlapok201807/01Nap$ cd ../02Nap/
     gplesz@windows10:~/repos/CSharpAlapok201807/02Nap$ ls
     01ValtozokCore
