@@ -364,7 +364,7 @@ A Microsoft tanácsa a következő:
     - "lebutítjuk" a kör területét *int*-re, 
     - "felokosítjuk" a többit *double*-ra
 - [X] érmefeldobás osztály segítségével szimulálni az érmék feldobását
-- [ ] hamis érmét gyártani, ami mindig csak fejre esik.
+- [X] hamis érmét gyártani, ami mindig csak fejre esik.
 
 Ha a leszármaztatott osztályt az ősosztály felületén keresztül szólítom, a hívás nem fog elmenni
 a leszármaztatott osztályig, a C# (leszármaztatási) osztályhierarhia nem "hamisítható".
@@ -405,12 +405,39 @@ a leszármaztatott osztályig, a C# (leszármaztatási) osztályhierarhia nem "h
 
 Ahhoz, hogy hamísítani lehessen, az ősosztályban a felülírható dolgokat **virtual** kulcsszóval kell ellátni.
 
-
-
-
-
-
+```
++------------------------------+                                 +--------------------------+               +
+| FakeCoin                     |                                 | Coin                     |               |
++------------------------------+                                 +--------------------------+               |
+|                              |                                 |                          |               |
+|                              |                                 |                          |               |
+|                              |                                 |                          |               |
+|                              |                                 |                          |               |
+|                              |                                 |                          |               |
+|                              |                                 |                          |               |
+| override Collect()           |  <--------------------------+   | virtual Collect()        |  <------------++
+|                              |                                 |                          |
+|                              |  +-------------------------->   |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
+|                              |                                 |                          |
++------------------------------+                                 +--------------------------+
+```
 
 
 ## 2. Házi feladat
 - "felokosítani" minden Area() függvényt *double* visszadott értékre
+- a területszámítást ne felülettel, hanem ősosztállyal oldjuk meg
