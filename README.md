@@ -277,3 +277,16 @@ vagy néhány másodpercen belül lefagy a gépem.
     To install additional .NET Core runtimes or SDKs:
       https://aka.ms/dotnet-download
   ```
+
+## a .NET keretrendszer rövid története
+- a teljes (full) .NET framework CSAK windows-on fut
+- az erre épülő ASP.NET keretrendszer csak windows-on fut (és csak IIS szervert képes használni)
+
+ezért az ASP.NET fejlesztői a teljes újraírás mellett döntöttek
+- elindult az ASP.NET Core fejlesztése az alapoktól azzal céllal, hogy Linux-on is képes legyen működni
+- mivel ez nem lehetséges a teljes .NET-tel, így elindult a .NET újraírása is .NET Core néven
+
+A Microsoft tanácsa a következő:
+- ha új fejlesztésbe kezd az ember, és NEM desktop, akkor használjon .NET Core/ASP.NET Core környezetet, mert ez már alkalmas produkciós fejlesztésre
+- ha meglévő fejlesztése van, vagy speciális Windows fejlesztésről van szó, vagy Desktop fejlesztésről, vagy olyan nuget csomagot kell felhasználnunk, aminek nincs .NET Core támogatása, akkor használjunk teljes .NET-et
+- ha desktop multiplatformot akarunk, akkor érdemes elgondolkodni a Xamarin környezeten, wagy valamilyen kliens oldali webes környezeten (ionic, angular, react, stb.)
