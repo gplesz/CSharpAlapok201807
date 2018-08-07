@@ -11,6 +11,7 @@ namespace _02SikidomokTerulete
         {
             this.trianglebase = trianglebase;
             this.height = height;
+            this.Name = "Háromszög";
         }
 
         public override double Area()

@@ -9,6 +9,7 @@ namespace _02SikidomokTerulete
         public Circle(int radius)
         {
             this.radius = radius;
+            this.Name = "Kör";
         }
 
         public override double Area()

@@ -506,3 +506,15 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 |                                  |
 +----------------------------------+
 ```
+
+## Feladatok
+- [X] Absztrakt osztály tulajdonságainak tisztázása
+- [ ] Mi a különbség az absztrakt osztály (abstract class) és a felület (interface) között?
+
+
+
+### Absztrakt osztályok tulajdonságai
+- absztrakt függvény csak absztrakt osztályban lehet
+- absztrakt osztálynak lehet nem absztrakt függvényei, tulajdonságai és mezői
+- nem lehet példányosítani, vagyis, csak leszármaztatott osztály ősosztályaként jön létre belőle példány
+

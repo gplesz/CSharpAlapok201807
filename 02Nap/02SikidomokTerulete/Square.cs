@@ -9,6 +9,7 @@ namespace _02SikidomokTerulete
         public Square(int side)
         {
             this.side = side;
+            this.Name = "Négyzet";
         }
 
         public override double Area()

@@ -33,11 +33,20 @@ namespace _02SikidomokTerulete
             // hogy lehetne ezt profibban elvégezni???
             // mi van, ha 300 síkidom területét kell összeadni?
 
+            //absztrakt osztályt nem tudok példányosítani!
+            //ez nem fordul le:
+            //var pln = new Plane();
+
             var planes = new List<Plane>();
 
             planes.Add(square);
             planes.Add(circle);
             planes.Add(triangle);
+
+            foreach (var plane in planes)
+            {
+                Console.WriteLine($"A síkidom neve: {plane.Name}, területe: {plane.Area()}");
+            }
 
             //var sum = 0;
             //foreach (var plane in planes)
