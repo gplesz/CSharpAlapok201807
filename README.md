@@ -521,3 +521,28 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 - A felület nem tartalmaz implementációt
 - Az absztrakt osztály tartalmazHAT implementációt
 - Amikor leszármaztatunk, csak egy ősosztályunk lehet, viszont több felületünk is.
+
+## Feladatok
+- [ ] Objektumorientált programozás fogalmai
+- [ ] Objektumorientált elmélet
+- [ ] Függvények, függvények paraméterei
+
+### Objektumorientált programozás fogalmai
+- Objektum (osztálypéldány)
+  - azonosítható (indentity)
+  - van állapota (state)
+    - az objektum valamennyi tulajdonságához tartozó értékek halmaza az adott pillanatban
+    - időben változhat
+  - van viselkedése (behaviour)
+    - függyvényekkel implementáljuk
+
+- Osztály
+  - objektum tervrajza, ennek alapján hozza létre a példányokat az alkalmazás
+  - azonos típusú objektumok gyűjtője
+
+### Objektumorientált elmélet fogalmai
+- Elvonatkoztatás (Abstraction)
+- Egységbezárás (Encapsulation)
+- Modularitás (Modularity)
+- Hierarchia (Hierarchy)
+
