@@ -33,7 +33,7 @@ namespace _02SikidomokTerulete
             // hogy lehetne ezt profibban elvégezni???
             // mi van, ha 300 síkidom területét kell összeadni?
 
-            var planes = new List<IPlane>();
+            var planes = new List<Plane>();
 
             planes.Add(square);
             planes.Add(circle);

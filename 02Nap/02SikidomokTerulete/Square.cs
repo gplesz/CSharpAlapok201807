@@ -2,7 +2,7 @@
 
 namespace _02SikidomokTerulete
 {
-    public class Square : IPlane
+    public class Square : Plane
     {
         private int side;
 
@@ -11,7 +11,7 @@ namespace _02SikidomokTerulete
             this.side = side;
         }
 
-        public double Area()
+        public override double Area()
         {
             return side * side;
         }

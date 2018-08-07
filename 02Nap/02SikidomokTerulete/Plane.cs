@@ -2,13 +2,17 @@
 
 namespace _02SikidomokTerulete
 {
-    public class Plane
+    //abstract függvényt csak abstract osztályban lehet létrehozni, ezért abstract
+    public abstract class Plane : IPlane
     {
-        //ide vajon mit írjak???
-        public int Area()
-        {
-            //elméletileg ez nem teljes hülyeség lehetne
-            return 0;
-        }
+        //mivel nincs általános síkidom területszámítás, így 
+        //ide nem tudunk érvényes implementációt adni.
+        //erre való az absztrakt függvény, aminek nincs implementációja
+        //mivel nincs implementációja, arra való, hogy a leszármaztatás közben implementáljuk
+        //vagyis az abstract kulcsszó gyakorlatilag egyben jelenti a virtual
+        //további kötelmek:
+        //abstract függvényt csak abstract osztályban lehet létrehozni
+
+        public abstract double Area();
     }
 }

@@ -441,3 +441,68 @@ Ahhoz, hogy hamísítani lehessen, az ősosztályban a felülírható dolgokat *
 ## 2. Házi feladat
 - "felokosítani" minden Area() függvényt *double* visszadott értékre
 - a területszámítást ne felülettel, hanem ősosztállyal oldjuk meg
+
+A függvényhíváskori implizit típuskonverzió:
+```
+   var coin = new FakeCoin();   DoCollects(coin);
+             +                       +
+             |                       |
+             |                       |
+             v                       v
+
++-----------------------------+------------+
+|                             |            |
+| FakeCoin                    | Coin       |
+|                             |            |
+|                             |            |
+|                             |            |
+|                             |            |
+|                             |            |
+|                             |            |
+|                             |            |
+|                             |            |
+|                             +------------+
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
++-----------------------------+
+```
+
+Az abstract ősosztállyal megoldott területszámítás a következő módon működik:
+
+```
++----------------------------------+                                                                                              |
+|                                  |                                                                                              |
+| Square                           |                                                                                              |
+|                                  |                                                                                              |
+|  public override double Area();  |  +-------------->                                                                            |
+|                                  |                 |                                                                            |
+|                                  |                 |                                                                            |
+|                                  |                 |                                                                            v
++----------------------------------+                 |
+                                                     |          +----------------------------------+            +-----------------------------+
+                                                     |          |                                  |            |                             |
++----------------------------------+                 |          | abstract class Plane             |            | IPlane                      |
+|                                  |                 |          |                                  |            |                             |
+| Circle                           |                 |          |                                  |            |                             |
+|                                  |                 |          |  public abstract double Area();  |  +------>  |  double Area();             |
+|  public override double Area();  | +-------------> +--------> |                                  |            |                             |
+|                                  |                 |          |                          <--------------------------------+  ^              |
+|                                  |                 |          |                                  |            |              |              |
+|                                  |                 |          |                                  |            |              |              |
++----------------------------------+                 |          |                                  |            |              |              |
+                                                     |          |                                  |            |              |              |
+                                                     |          +----------------------------------+            +-----------------------------+
+                                                     |                                                                         |
++----------------------------------+                 |                                                                         |
+|                                  |                 |                                                                         |
+| Triangle                         |                 +                                                                         |
+|                                  | +-------------->                                                                          +
+|  public override double Area();  |                                                                        planes.Sum(x => x.Area())
+|                                  |
++----------------------------------+
+```

@@ -13,6 +13,8 @@ namespace _03ErmeHamisitas
             //a típuskonverzió azt jelenti, hogy a példányt a Coin felületen keresztül fogjuk használni
             //ez azért tud lefutni, mert a FakeCoin le van származtatva a Coin osztályból
 
+            //ld.: rajz a ReadMe 2. Házi feladat fejezeben
+
             DoCollects(coin);
 
             Console.ReadLine();
