@@ -512,9 +512,12 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 - [ ] Mi a különbség az absztrakt osztály (abstract class) és a felület (interface) között?
 
 
-
 ### Absztrakt osztályok tulajdonságai
 - absztrakt függvény csak absztrakt osztályban lehet
 - absztrakt osztálynak lehet nem absztrakt függvényei, tulajdonságai és mezői
 - nem lehet példányosítani, vagyis, csak leszármaztatott osztály ősosztályaként jön létre belőle példány
 
+### Mi a különbség az absztrakt osztály és a felület között?
+- A felület nem tartalmaz implementációt
+- Az absztrakt osztály tartalmazHAT implementációt
+- Amikor leszármaztatunk, csak egy ősosztályunk lehet, viszont több felületünk is.

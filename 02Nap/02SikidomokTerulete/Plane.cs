@@ -3,7 +3,7 @@
 namespace _02SikidomokTerulete
 {
     //abstract függvényt csak abstract osztályban lehet létrehozni, ezért abstract
-    public abstract class Plane : IPlane
+    public abstract class Plane : IPlane, IDisplayable
     {
         /// <summary>
         /// Absztrakt osztályban lehet nem absztrakt property
@@ -11,6 +11,11 @@ namespace _02SikidomokTerulete
         /// A létrejövő síkidom neve
         /// </summary>
         public string Name { get; set; }
+
+        #region IDiplayable implementáció
+        public int PosX { get; set; }
+        public int PosY { get; set; }
+        #endregion IDiplayable implementáció
 
         /// <summary>
         /// síkidom megjelenítése
