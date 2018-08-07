@@ -13,7 +13,7 @@ namespace _02SikidomokTerulete
             this.height = height;
         }
 
-        public int Area()
+        public double Area()
         {
             return (trianglebase * height) / 2;
         }

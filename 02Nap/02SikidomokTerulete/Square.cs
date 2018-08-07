@@ -11,7 +11,7 @@ namespace _02SikidomokTerulete
             this.side = side;
         }
 
-        public int Area()
+        public double Area()
         {
             return side * side;
         }

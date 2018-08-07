@@ -4,6 +4,6 @@
     {
         //a public kolcsszóra nincs szükség, mert 
         //ami a felületen látszik az definíció szerint publikus
-        int Area();
+        double Area();
     }
 }
