@@ -509,7 +509,7 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 
 ## Feladatok
 - [X] Absztrakt osztály tulajdonságainak tisztázása
-- [ ] Mi a különbség az absztrakt osztály (abstract class) és a felület (interface) között?
+- [X] Mi a különbség az absztrakt osztály (abstract class) és a felület (interface) között?
 
 
 ### Absztrakt osztályok tulajdonságai
