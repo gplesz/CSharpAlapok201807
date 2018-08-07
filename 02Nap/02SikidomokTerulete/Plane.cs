@@ -7,7 +7,7 @@ namespace _02SikidomokTerulete
         //ide vajon mit írjak???
         public int Area()
         {
-            //elméletileg ez nem teljes jülyeség lehetne
+            //elméletileg ez nem teljes hülyeség lehetne
             return 0;
         }
     }
