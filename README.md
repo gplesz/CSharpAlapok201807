@@ -564,5 +564,11 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 ```
 
   - [ ] Véglegesítő (Finalizer)
+    - az objektumok életciklusa akkor ér véget, ha már "nincs rájuk szükség"
+    - ez akkor történik, ha nincs már rájuk egyetlen élő hivatkozás sem a kódban
+    - ekkor egy idő után jön a .NET keretrendszer szemétgyűjtője, és törli a memóriából
+    - abban az esetben, ha takarítanivalónk van, ez nem jó megoldás
+    - ilyen esetekre való a véglegesítő függvény
+
 - .NET memóriakezelése
   - [ ] Szemétgyűjtő (Garbage Collector, GC)

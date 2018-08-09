@@ -36,7 +36,6 @@
         {
             System.Console.WriteLine("Base létrehozó: Base(string name)");
             Name = name;
-
         }
 
         public Base(string name, string email)
@@ -63,5 +62,18 @@
         /// a konstruktorban írható
         /// </summary>
         public string Email { get; }
+
+        /// <summary>
+        /// Ez az osztály véglegesítő függvénye,
+        /// - se láthatósági jelzése (közvetlenül nem is hívható!!!), 
+        /// - se paraméterlistája
+        /// - se visszaadott értéke nincs.
+        /// - a keretrendszer hívja majd egyszer, valamikor
+        /// </summary>
+        ~Base()
+        {
+            System.Console.WriteLine("véglegesítő: ~Base()");
+        }
+
     }
 }

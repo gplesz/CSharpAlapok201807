@@ -20,5 +20,10 @@
         {
             System.Console.WriteLine("Middle létrehozó: Middle(string name, string email)");
         }
+
+        ~Middle()
+        {
+            System.Console.WriteLine("véglegesítő: ~Middle()");
+        }
     }
 }
