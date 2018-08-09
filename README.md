@@ -575,3 +575,88 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
     - és magától nem tudjuk, hogy a szemétgyűjtés mikor fut, így nekünk kell ezt kézzel kikényszeríteni - kizárólag demonstrációs célból.
 - .NET memóriakezelése
   - [ ] Szemétgyűjtő (Garbage Collector, GC)
+
+### Szemétgyűjtő működése
+```
+             Értéktípusok                                Referenciatípusok
+
+
+       +------------------+                     +---------------------------------------+
+       | Verem (STACK)    |                     | Halom (HEAP)                          |
+       +------------------+                     +---------------------------------------+
+       |                  |                     |                                       |
+       |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
++----> |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
+       |                  |                     +---------------------------------------+
+       |                  |                     |hhhhhhhhhhhhhhh|iiiiiiiiiiiiii|jjjjjjjj|
+       |  hivatkozás  +------------------>      |hhhhhhhhhhhhhhh|iiiiiiiiiiiiii|jjjjjjjj|
+       |                  |              |      +---------------------------------------+
+       |  hivatkozás      |              |      |eeeeeeeeeeeeeeeeeeeee|fffffffffff|ggggg|
+       |                  |              |      +---------------------------------------+ <---------------+
+       |                  |              v----> |aaaaaaaaaaaaaaaa|bbbbbbb|cccc|ddddddddd|
+       +------------------+                     +---------------------------------------+
+
+```
+
+#### ROOT
+innen indulva keressük meg az élő referenciákat
+
+- hívási verem változói (függvény paraméterek is)
+- lokális változók
+- statikus osztály property-k és mezők
+- finalizer queue
+- f-reacheble queue
+
+
+#### Szemétgyűjtő (GC: Garbage Collector)
+A szemétgyűjtés időről időre lefut, és takarít a következő módon:
+
+0. minden adatot megjelöl szemétnek a heap memórián
+1. A ROOT-ból elindulva végig tudunk menni valamennyi hivatkozáson és elérünk minden olyan osztálypéldányt, amire van érvényes és élő referencia. Ezeket megjelöli nem szemétnek.
+2. A maradét a szemét (Garbage) ezt kell kitakarítani
+3. A szemétgyűjtő minden érvényes adatot áthelyez hézagmentesre és frissíti a referenciákat úgy, hogy az adatok új helyére mutassanak
+```
+             Értéktípusok                                Referenciatípusok
+
+
+       +------------------+                     +---------------------------------------+
+       | Verem (STACK)    |                     | Halom (HEAP)                          |
+       +------------------+                     +---------------------------------------+
+       |                  |                     |                                       |
+       |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
++----> |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
+       |  adat            |                     |                                       |
+       |                  |                     |                                       |
+       |                  |                     +------------------------------+  <------------------+
+       |  hivatkozás  +------------------>      |hhhhhhhhhhhh|jjjjjjjjjjjjjjjjj|        |
+       |                  |              |      +---------------------------------------+
+       |  hivatkozás      |              |      |eeeeeeeeeeeeee|ggggg|hhhhhhhhhhhhhhhhhh|
+       |                  |              |      +---------------------------------------+
+       |                  |              v----> |aaaaaaaaaaaaaaaa|cccc|ddddddddd|eeeeeee|
+       +------------------+                     +---------------------------------------+
+
+``` 
+
+Ez gyakorlatilag egy szemétgyűjtési ciklus, ami az alkalmazások szempontjából a háttérben, észrevétlenül zajlik.
+
+#### Korosítás
+A szemétgyűjtés alkalmával minden objektumnak lesz egy "kora".
+- 0. szint: (gyerek) amire még nem futott a szemétgyűjtés
+- 1. szint: (szülő) amire már egyszer futott a szemétgyűjtés
+- 2. szint: (nagyszülő) amire már kétszer futott a szemétgyűjtés
+
+A halom tetején vannak a legfiatalabbak (0. szint), 
+majd öket követik amire már egyszer futott a szemétgyűjtés (1. szint) 
+végül a halom legalján a legidősebb objektumok vannak (2. szint.)
+
+A véglegesítő függvények a következő bonyodalmakat okozzák:
+
+
+-1. lépés
