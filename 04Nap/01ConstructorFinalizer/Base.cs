@@ -72,7 +72,7 @@
         /// </summary>
         ~Base()
         {
-            System.Console.WriteLine("véglegesítő: ~Base()");
+            System.Console.WriteLine($"véglegesítő: ~Base(), name: {Name}, Email: {Email}");
         }
 
     }

@@ -569,6 +569,9 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
     - ekkor egy idő után jön a .NET keretrendszer szemétgyűjtője, és törli a memóriából
     - abban az esetben, ha takarítanivalónk van, ez nem jó megoldás
     - ilyen esetekre való a véglegesítő függvény
-
+    - Csak ha abszolút fontos, és teljességgel tudjuk, hogy mit csinálunk, akkor használjunk véglegesítőt
+    - Debug üzemmódban a debugger máshogy kezeli a memóriát, a példakódunk nem fog úgy futni, ahogy szeretnénk
+    - Ezért ezt a példakódot Release konfigurációval futtassuk
+    - és magától nem tudjuk, hogy a szemétgyűjtés mikor fut, így nekünk kell ezt kézzel kikényszeríteni - kizárólag demonstrációs célból.
 - .NET memóriakezelése
   - [ ] Szemétgyűjtő (Garbage Collector, GC)

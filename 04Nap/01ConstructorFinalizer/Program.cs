@@ -30,6 +30,15 @@ namespace _01ConstructorFinalizer
             Console.WriteLine($"név: {t.Name}, email: {t.Email}");
             Console.WriteLine();
 
+            b = null;
+            m = null;
+            t = null;
+
+            //Ahhoz, hogy a szemétgyűjtő lefusson, ki kell kényszerítenünk egy takarítást.
+            //ezt a kódot ne futtassuk a programunkban.
+
+            GC.Collect();
+
             Console.ReadLine();
 
         }
