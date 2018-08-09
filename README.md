@@ -609,7 +609,9 @@ innen indulva keressük meg az élő referenciákat
 - lokális változók
 - statikus osztály property-k és mezők
 - finalizer queue
-- f-reacheble queue
+  azok az élő objektumok, amiknek van finalizer függvényük  
+- f-reachable queue
+  azok a garbage objektumok, amiknek van finalizer függvényük
 
 
 #### Szemétgyűjtő (GC: Garbage Collector)
@@ -658,5 +660,19 @@ végül a halom legalján a legidősebb objektumok vannak (2. szint.)
 
 A véglegesítő függvények a következő bonyodalmakat okozzák:
 
+- 1. lépés (mínusz 1): amikor az objektum példányosodik, ha van van véglegesítő függvénye, akkor bekerül egy mutató erre az objektumra a finalizer queue-ba. 
+     Ezért a szemétgyűjtéskor ezt az objektumot majd nem minősíti szemétnek a GC.
 
--1. lépés
+- 2/3. szemétgyűjtéskor a hivatkozást áthelyezi a szemétgyűtő az f-reachable queue-ba, 
+     vagyis jelzi, hogy az objektum már nem és, de a finalizer még nem futott (igy bár "garbage", nem törölhető a heap-ről )
+
+
+- Egy teljesen más folyamatban, egyszer, valamikor, nem meghatározható időpontban az f-reachable queuban lévő hivatkozások végén lévő objektumokra lefut a finalizer függvény, és kikerül az f-reachable queue-ból
+
+- a következő szemétgyűjtéskor (mivel már a root-ból nem elérhető) garbage-nek minősül és törlődik a memóriából.
+
+
+vagyis, 
+- a véglegesítő függvény nem tudjuk, hogy mikor fut
+- legalább két ciklus szemétgyűjtés kell, hogy a memóriából kitakarítódjanak.
+
