@@ -548,4 +548,7 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 
 ### Feladatok
 - Objektumok életciklusa
+  - [ ] Létrehozó (Constructor)
+  - [ ] Véglegesítő (Finalizer)
 - .NET memóriakezelése
+  - [ ] Szemétgyűjtő (Garbage Collector, GC)
