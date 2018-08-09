@@ -2,9 +2,14 @@
 {
     public class Third : Middle
     {
-        public Third()
+        //public Third()
+        //{
+        //    System.Console.WriteLine("Third létrehozó: Third()");
+        //}
+
+        public Third(string name, string email) : base(name, email)
         {
-            System.Console.WriteLine("Third létrehozó: Third()");
+            System.Console.WriteLine("Third létrehozó: Third(string name, string email)");
         }
     }
 }
