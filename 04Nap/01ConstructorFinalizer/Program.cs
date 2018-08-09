@@ -13,6 +13,14 @@ namespace _01ConstructorFinalizer
             Console.WriteLine();
 
             var t = new Third();
+            Console.WriteLine();
+
+            //paraméterrel rendelkező konstruktorok használata
+            b = new Base("ez az alaposztály");
+            Console.WriteLine();
+
+            b = new Base("ez az alaposztály", "alap@alap.hu");
+            Console.WriteLine();
 
             Console.ReadLine();
 
