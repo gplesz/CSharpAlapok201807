@@ -680,3 +680,10 @@ vagyis,
 - a véglegesítő függvény nem tudjuk, hogy mikor fut
 - legalább két ciklus szemétgyűjtés kell, hogy a memóriából kitakarítódjanak.
 
+
+
+### Házi feladat
+- minden projektet futtatni linuxon
+- Dockert telepíteni és elérni, hogy fusson (docker info működik)
+- az elmélet elmélyítése és annak végiggondolása, hogy ha egy osztály olyan függőséget tartalmaz, amit takarítani kell, akkor mi a jó megoldás?
+ 
