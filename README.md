@@ -546,3 +546,6 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 - Modularitás (Modularity)
 - Hierarchia (Hierarchy)
 
+### Feladatok
+- Objektumok életciklusa
+- .NET memóriakezelése
