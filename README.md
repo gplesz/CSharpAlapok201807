@@ -548,7 +548,21 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 
 ### Feladatok
 - Objektumok életciklusa
-  - [ ] Létrehozó (Constructor)
+  - [X] Létrehozó (Constructor)
+
+```
++---------------------+          +---------------------+       +----------------------+
+|  Third              |          |  Middle             |       |  Base                |
++---------------------+          +---------------------+       +----------------------+
+|                     |          |                     |       |                      |
+|                     | +----->  |                     | +---> |  Name                |
+|                     |          |                     |       |  Email               |
+|                     |          |                     |       |                      |
+|                     |          |                     |       |                      |
++---------------------+          +---------------------+       +----------------------+
+
+```
+
   - [ ] Véglegesítő (Finalizer)
 - .NET memóriakezelése
   - [ ] Szemétgyűjtő (Garbage Collector, GC)

@@ -30,8 +30,6 @@ namespace _01ConstructorFinalizer
             Console.WriteLine($"név: {t.Name}, email: {t.Email}");
             Console.WriteLine();
 
-
-
             Console.ReadLine();
 
         }
