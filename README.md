@@ -591,12 +591,12 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
 +----> |  adat            |                     |                                       |
        |  adat            |                     |                                       |
        |  adat            |                     |                                       |
-       |                  |                     +---------------------------------------+
+       |                  |                     +---------------------------------------+ <---------------+ a HEAP foglalás teteje
        |                  |                     |hhhhhhhhhhhhhhh|iiiiiiiiiiiiii|jjjjjjjj|
        |  hivatkozás  +------------------>      |hhhhhhhhhhhhhhh|iiiiiiiiiiiiii|jjjjjjjj|
        |                  |              |      +---------------------------------------+
        |  hivatkozás      |              |      |eeeeeeeeeeeeeeeeeeeee|fffffffffff|ggggg|
-       |                  |              |      +---------------------------------------+ <---------------+
+       |                  |              |      +---------------------------------------+ 
        |                  |              v----> |aaaaaaaaaaaaaaaa|bbbbbbb|cccc|ddddddddd|
        +------------------+                     +---------------------------------------+
 
@@ -636,7 +636,7 @@ A szemétgyűjtés időről időre lefut, és takarít a következő módon:
        |  adat            |                     |                                       |
        |  adat            |                     |                                       |
        |                  |                     |                                       |
-       |                  |                     +------------------------------+  <------------------+
+       |                  |                     +------------------------------+  <------------------+  a HEAP foglalás teteje
        |  hivatkozás  +------------------>      |hhhhhhhhhhhh|jjjjjjjjjjjjjjjjj|        |
        |                  |              |      +---------------------------------------+
        |  hivatkozás      |              |      |eeeeeeeeeeeeee|ggggg|hhhhhhhhhhhhhhhhhh|
