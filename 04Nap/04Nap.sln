@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01ConstructorFinalizer", "01ConstructorFinalizer\01ConstructorFinalizer.csproj", "{625B479E-25D5-40C9-89AE-BD38883EBAEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01ConstructorFinalizer", "01ConstructorFinalizer\01ConstructorFinalizer.csproj", "{625B479E-25D5-40C9-89AE-BD38883EBAEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02GarbageCollectorExample1", "02GarbageCollectorExample1\02GarbageCollectorExample1.csproj", "{7321C674-29D2-4327-A0E6-8535D945636C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{625B479E-25D5-40C9-89AE-BD38883EBAEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{625B479E-25D5-40C9-89AE-BD38883EBAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{625B479E-25D5-40C9-89AE-BD38883EBAEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7321C674-29D2-4327-A0E6-8535D945636C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7321C674-29D2-4327-A0E6-8535D945636C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7321C674-29D2-4327-A0E6-8535D945636C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7321C674-29D2-4327-A0E6-8535D945636C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

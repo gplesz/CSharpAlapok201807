@@ -574,7 +574,7 @@ Az abstract ősosztállyal megoldott területszámítás a következő módon m�
     - Ezért ezt a példakódot Release konfigurációval futtassuk
     - és magától nem tudjuk, hogy a szemétgyűjtés mikor fut, így nekünk kell ezt kézzel kikényszeríteni - kizárólag demonstrációs célból.
 - .NET memóriakezelése
-  - [ ] Szemétgyűjtő (Garbage Collector, GC)
+  - [X] Szemétgyűjtő (Garbage Collector, GC)
 
 ### Szemétgyűjtő működése
 ```
@@ -647,6 +647,10 @@ A szemétgyűjtés időről időre lefut, és takarít a következő módon:
 ``` 
 
 Ez gyakorlatilag egy szemétgyűjtési ciklus, ami az alkalmazások szempontjából a háttérben, észrevétlenül zajlik.
+
+A korosítás azért van, hogy a szemétgyűjtés hatékonyabb legyen:
+a 0. generációra fut a leggyakrabban a szemétgyújtés
+az 1. ritkábban és legritkábban a 2. generációra fut.
 
 #### Korosítás
 A szemétgyűjtés alkalmával minden objektumnak lesz egy "kora".
