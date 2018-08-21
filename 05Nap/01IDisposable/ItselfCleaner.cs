@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace _01IDisposable
 {
@@ -19,7 +20,6 @@ namespace _01IDisposable
     /// </summary>
     public class ItselfCleaner : IDisposable
     {
-        private bool isDisposed = false;
 
         //menedzselt stream, de IDisposable felületet implementál
         private Stream fileStream = new FileStream("file.txt", FileMode.Create);
@@ -28,6 +28,11 @@ namespace _01IDisposable
         //nem menedzselt memóriaterület
         private IntPtr unmanagedMemory = IntPtr.Zero;
 
+        /// <summary>
+        /// "Logikai" érték: 0=false (hamis), 1=true (igaz)
+        /// jelzi, hogy lefutott-e már a Dispose
+        /// </summary>
+        private int isDisposed = 0;
 
         public ItselfCleaner() 
         {
@@ -43,6 +48,39 @@ namespace _01IDisposable
             //kell a GC-nek, hogy ezt a területet már nem használhatja
             GC.AddMemoryPressure(1000000);
 
+        }
+
+        public int FugvenyAmiFigyelADisposRa()
+        {
+            EnsureNotDisposed();
+            //tennivalók elvégzése
+            return 1;
+        }
+
+        public int MyProperty
+        {
+            get
+            {
+                EnsureNotDisposed();
+                //tennivalók elvégzése
+                return 1;
+            }
+            set
+            {
+                EnsureNotDisposed();
+                //tennivalók elvégzése
+            }
+        }
+        
+        /// <summary>
+        /// Ellenőrzi, hogy az osztálypéldányunkat még nem takarítottuk
+        /// </summary>
+        private void EnsureNotDisposed()
+        {
+            if (isDisposed == 1)
+            {
+                throw new ObjectDisposedException(nameof(ItselfCleaner));
+            }
         }
 
         /// <summary>
@@ -75,9 +113,16 @@ namespace _01IDisposable
         /// <param name="dispose">jelzi, hogy a Dispose függvényből hívtuk (true), vagy a Finalizerből (false). </param>
         private void Dispose(bool dispose)
         {
-            if (isDisposed)
+            //Egy logikai lépésben ezeket a műveleteket végzi:
+            //1. old = isDisposed; (elmenti az isDisposed jelenlegi értékét)
+            //2. isDisposed = 1; (megváltoztatja az isDisposed értékét 1-re)
+            //3. return old; (visszatér a régi isDisposed értékével
+
+            if (Interlocked.Exchange(ref isDisposed, 1)==1)
             {
-                return;
+                //return;
+                //amennyiben kétszer fut le, az általában logikai hiba, érdemes ezt hangosan és érthetően jelezni:
+                throw new ObjectDisposedException(nameof(ItselfCleaner));
             }
 
             //takarítás
@@ -112,7 +157,6 @@ namespace _01IDisposable
                 GC.RemoveMemoryPressure(1000000);
             }
 
-            isDisposed = true;
         }
     }
 }

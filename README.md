@@ -698,6 +698,44 @@ vagyis,
       - ha a using-ból hívjuk a Dispose-t, akkor takarítani kell mindent, 
       - ha Finalizerből hívjuk a Dispose-t, akkor csak a nem menedzselt memóriát kell takarítani, a menedzseltet a GC intézi
     - Elérjük, hogy a Finalizer csak a védőháló legyen (B-terv), ha "rendesen" használjuk az osztálypéldányt (pl. using-gal), akkor sosem fut le
+    - A Dispose függvényben nagyon gondosnak kell lennünk: null vizsgálat minden referenciára
+    - Figyelni kell a Dispose futtatásakor a párhuzamos végrehajtásra is, és kizárni a [versenyhelyzetet](https://hu.wikipedia.org/wiki/Versenyhelyzet) ([race condition](https://stackoverflow.com/questions/34510/what-is-a-race-condition)):
+      ```
+                                                     using (var o = new ItselfCleaner)
+                                            +<-----+ +------------------------------+
+                                            |        |                              |
+                                            |        |                              |
+                  ItselfCleaner             |        |                              |
+                 +------------------------+ |  <---+ |                              |
+                 |                        | |  |   | |                              |
+race condition   |                        | |  |   | |                              |
+                 |                        | |  |   | |                              |
+          +----> |  if (isDisposed)       | |  |   | |                              |
+                 |                        | |  |   | +------------------------------+
+                 |                        | |  |   |
+                 |                        | |  |   |
+                 |                        | |  |   |
+                 |                        | |  |   |
+                 |                        | |  |   |
+                 |                        | |  |   | using (var o = new ItselfCleaner)
+                 |                        | |  |   + +------------------------------+
+                 |                        | |  |     |                              |
+                 |                        | |  |     |                              |
+                 |                        | |  |     |                              |
+                 |                        | |  |     |                              |
+                 |                        | |  |     |                              |
+                 | isDisposed = true;     | |  |     |                              |
+                 |                        | |  |     |                              |
+                 |                        | v  v     |                              |
+                 +------------------------+          +------------------------------+
+ 
+
+      ```
+    - védeni kell a függvényeket és property-ket az esetleges törölt példány használattól
+      (mivel integer-t használunk az isDispose jelzésre a kiolvasása egy lépésben történik, így nem okoz race conditiont)
+
+
+
 
 - [ ] IEnumerable minta áttekintése
 - [ ] Docker használata dotnet core alkalmazások fejlesztéséhez
