@@ -694,9 +694,10 @@ vagyis,
     - meghívjuk a Dispose függvényt a Finalizerből, hogyha elfelejtettünk volna using-ot használni.
     - gondoskodunk arról is, hogyha a using meghívta már a Dispose-t, akkor ez ne okozzon kivételt a Finalizerből hívva
     - párban implementáljuk a memória lefoglalását és felszabadítását
-    - Honnan hívkuk a Dispose-t?
+    - Honnan hívjuk a Dispose-t?
       - ha a using-ból hívjuk a Dispose-t, akkor takarítani kell mindent, 
       - ha Finalizerből hívjuk a Dispose-t, akkor csak a nem menedzselt memóriát kell takarítani, a menedzseltet a GC intézi
+    - Elérjük, hogy a Finalizer csak a védőháló legyen (B-terv), ha "rendesen" használjuk az osztálypéldányt (pl. using-gal), akkor sosem fut le
 
 - [ ] IEnumerable minta áttekintése
 - [ ] Docker használata dotnet core alkalmazások fejlesztéséhez

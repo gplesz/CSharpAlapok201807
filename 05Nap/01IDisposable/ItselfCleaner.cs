@@ -86,19 +86,31 @@ namespace _01IDisposable
             { //a Dispose-ból hívtuk, így a menedzselt részeket is takarítjuk
 
                 //menedzselt IDisposable felületet használó példány felszabadítása
-                fileStream.Dispose();
-                fileStream = null;
+                //null vizsgálat, nehogy kivételre fussunk
+                if (fileStream!=null)
+                {
+                    fileStream.Dispose();
+                    fileStream = null;
+                }
 
                 //menedzselt memória felszabadítása
-                managedMemory.Clear();
-                managedMemory = null;
+                //null vizsgálat, nehogy kivételre fussunk
+                if (managedMemory != null)
+                {
+                    managedMemory.Clear();
+                    managedMemory = null;
+                }
 
             }
 
-            //nem menedzselt memória felszabadítása
-            Marshal.FreeHGlobal(unmanagedMemory);
-            //szólunk a GC-nek, hogy újra használhatja ezt a területet
-            GC.RemoveMemoryPressure(1000000);
+            //inicializálatlan helyzet kizárása, nehogy kivételre fussunk
+            if (unmanagedMemory != IntPtr.Zero)
+            {
+                //nem menedzselt memória felszabadítása
+                Marshal.FreeHGlobal(unmanagedMemory);
+                //szólunk a GC-nek, hogy újra használhatja ezt a területet
+                GC.RemoveMemoryPressure(1000000);
+            }
 
             isDisposed = true;
         }
