@@ -689,6 +689,13 @@ vagyis,
  
 ### Feladatok
 - [ ] IDisposable minta implementálása
+    - készítünk egy Dispose függvényt, ami a takarítást végzi
+    - és try-finally konstrukcióval gondoskodunk, hogy mindig fusson.
+    - hogy ne kelljen mindig annyit gépelni, használhatjuk a using(...) {...} syntactic sugar-t is.
+    - Implementáljuk a Dispose függvényt, hogy a using tudja használni
+    - meghívjuk a Dispose függvényt a Finalizerből, hogyha elfelejtettünk volna using-ot használni.
+    - párban implementáljuk a memória lefoglalását és felszabadítását
+
 - [ ] IEnumerable minta áttekintése
 - [ ] Docker használata dotnet core alkalmazások fejlesztéséhez
 
