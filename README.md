@@ -734,7 +734,7 @@ race condition   |                        | |  |   | |                          
     - védeni kell a függvényeket és property-ket az esetleges törölt példány használattól
       (mivel integer-t használunk az isDispose jelzésre a kiolvasása egy lépésben történik, így nem okoz race conditiont)
 
-- [ ] IEnumerable (Bejáró) minta áttekintése
+- [X] IEnumerable (Bejáró) minta áttekintése
     - amikor valamiből több van, és ezeket számba kéne venni, fel kéne sorolni, végig kéne rajtuk menni, stb.
     - megoldások
       - ```IEnumerable<T>``` típust visszaadó függvény:
@@ -805,3 +805,33 @@ class Program                                                      |            
 
 - [ ] Docker használata dotnet core alkalmazások fejlesztéséhez
 
+```
+  Virtuális gép
++--------------------------------------------------+
+|                                                  |
+|                                                  |
+|  Operációs rendszer                              |
+|                                                  |
+|       +                                          |
+|                                                  |
+|  Alkalmazások                                    |
+|                                                  |
+|       + Beállítások                              |
+|                                                  |
++--------------------------------------------------+
+
+
+
+ Konténer
++--------------------------------------------------+
+|                                                  |
+|  Felületi wrapper az OS felé                     |
+|                                                  |
+|                                                  |
+|  Alkalmazás                                      |
+|                                                  |
+|       + Beállítások                              |
+|                                                  |
+|                                                  |
++--------------------------------------------------+
+```
