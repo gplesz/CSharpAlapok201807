@@ -803,7 +803,7 @@ class Program                                                      |            
   - példányszintűből példányszintűt és statikust (osztályszintűt) is tudok hívni és hivatkozni
   - ha egy osztály statikus, akkor csak statikus függvényei, tulajdonságai és mezői lehetnek
 
-- [ ] Docker használata dotnet core alkalmazások fejlesztéséhez
+- [X] Docker használata dotnet core alkalmazások fejlesztéséhez
 
 ```
   Virtuális gép
