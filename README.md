@@ -687,3 +687,8 @@ vagyis,
 - Dockert telepíteni és elérni, hogy fusson (docker info működik)
 - az elmélet elmélyítése és annak végiggondolása, hogy ha egy osztály olyan függőséget tartalmaz, amit takarítani kell, akkor mi a jó megoldás?
  
+### Feladatok
+- [ ] IDisposable minta implementálása
+- [ ] IEnumerable minta áttekintése
+- [ ] Docker használata dotnet core alkalmazások fejlesztéséhez
+

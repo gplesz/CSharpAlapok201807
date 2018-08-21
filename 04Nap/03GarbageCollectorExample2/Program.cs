@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 
 namespace _03GarbageCollectorExample2
 {
@@ -15,7 +16,9 @@ namespace _03GarbageCollectorExample2
 
                 //ha a takarításra is figyelek a finelizer segítségével 
                 //akkor sem memória sem processzor problémába nem futunk.
-                using (var bitmap = new Bitmap(2048, 2048)) { }
+                //using (var bitmap = new Bitmap(2048, 2048)) { }
+
+                using (var stream = new MemoryStream(1000000000)) { }
             }
         }
     }
