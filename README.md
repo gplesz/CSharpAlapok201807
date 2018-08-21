@@ -770,9 +770,11 @@ race condition   |                        | |  |   | |                          
 |                                                   |
 +---------------------------------------------------+
 ```
+      - IEnumerable típusú osztály használata
+        - hátrány: csak **object** típus képes visszaadni.
 
 
-- [ ] Statikus és osztályszintű függvények használata
+- [X] Statikus és osztályszintű függvények használata
 
 ```
                                                                    +--------------------+

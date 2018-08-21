@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01IDisposable", "01IDisposa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02IEnumerable", "..\02IEnumerable\02IEnumerable.csproj", "{775FEFB2-0BBB-4B50-84A6-57CE34A9BF57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03IEnumerable", "03IEnumerable\03IEnumerable.csproj", "{8064BF97-5397-4FF6-810A-5E892179FAC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{775FEFB2-0BBB-4B50-84A6-57CE34A9BF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{775FEFB2-0BBB-4B50-84A6-57CE34A9BF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{775FEFB2-0BBB-4B50-84A6-57CE34A9BF57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8064BF97-5397-4FF6-810A-5E892179FAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8064BF97-5397-4FF6-810A-5E892179FAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8064BF97-5397-4FF6-810A-5E892179FAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8064BF97-5397-4FF6-810A-5E892179FAC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
