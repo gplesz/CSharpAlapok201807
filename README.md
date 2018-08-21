@@ -735,5 +735,71 @@ race condition   |                        | |  |   | |                          
       (mivel integer-t használunk az isDispose jelzésre a kiolvasása egy lépésben történik, így nem okoz race conditiont)
 
 - [ ] IEnumerable (Bejáró) minta áttekintése
+    - amikor valamiből több van, és ezeket számba kéne venni, fel kéne sorolni, végig kéne rajtuk menni, stb.
+    - megoldások
+      - ```IEnumerable<T>``` típust visszaadó függvény:
+```
+ Állapotgép
++---------------------------------------------------+
+|                                                   |
+|         +------------------------->+              |
+|                                    |              |
+|                                    v              |
+|                             "1 kg marhahús";      |
+|                                                   |
+|                                    +              |
+|                                    |              |
+|                                    |              |
+|                                    v              |
+|                             "só";                 |
+|                                    +              |
+|                                    |              |
+|                                    |              |
+|                                    v              |
+|                             "1 kg burgonya";      |
+|                                    +              |
+|                                    |              |
+|                                    |              |
+|                                    v              |
+|                             "1 kg liszt";         |
+|                                                   |
+|                                                   |
+|                                                   |
+|                                                   |
+|                                                   |
+|                                                   |
++---------------------------------------------------+
+```
+
+
+- [ ] Statikus és osztályszintű függvények használata
+
+```
+                                                                   +--------------------+
+class Program                                                      |                    |
++------------------------------+                                 + | InstanceFunction() |
+|                              |                                 | |                    |
+| public static void Main(...) |  <------------------------------+ |                    |
+|                              |                                   +--------------------+
+|                              |
+| static ShoppingList()        | <------------------------------+  +--------------------+
+|                              |                                |  |                    |
+|                              |                                +  | InstanceFunction() |
+|                              |                                   |                    |
+|                              |                                   |                    |
+|                              |                                   +--------------------+
+|                              |
++------------------------------+                                   +--------------------+ <----------+
+                                                                   |                    |            |
+                                                                   | InstanceFunction() | +----------+
+                                                                   |                    |
+                                                                   |                    |
+                                                                   +--------------------+
+
+```
+  - statikusból csak statikus tudok hívni, hívatkozni
+  - példányszintűből példányszintűt és statikust (osztályszintűt) is tudok hívni és hivatkozni
+  - ha egy osztály statikus, akkor csak statikus függvényei, tulajdonságai és mezői lehetnek
+
 - [ ] Docker használata dotnet core alkalmazások fejlesztéséhez
 
