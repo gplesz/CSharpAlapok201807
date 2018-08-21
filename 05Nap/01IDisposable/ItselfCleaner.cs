@@ -52,20 +52,48 @@ namespace _01IDisposable
         /// </summary>
         public void Dispose()
         {
-            if(isDisposed)
+            Dispose(true);
+            //kivesszük a Finalizer queue-ból az osztálypéldányt,
+            //hiszen takarítottunk, nincs már szükség erre
+            //ezzel elérjük, hogy ha jól használjuk a using-ot, 
+            //akkor a Finalizer sosem fog lefutni
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Az osztály finalizere, ha már nincs a példányra mutató hivatkozás
+        /// akkor egyszer, valamikor lefut. Feladat, hogy lehetőleg sose fusson :)
+        /// </summary>
+        ~ItselfCleaner()
+        {
+            Dispose(false);
+        }
+
+        /// <summary>
+        /// A "valódi" takarító függvény
+        /// </summary>
+        /// <param name="dispose">jelzi, hogy a Dispose függvényből hívtuk (true), vagy a Finalizerből (false). </param>
+        private void Dispose(bool dispose)
+        {
+            if (isDisposed)
             {
                 return;
             }
 
             //takarítás
 
-            //menedzselt IDisposable felületet használó példány felszabadítása
-            fileStream.Dispose();
-            fileStream = null;
+            if (dispose)
+            { //a Dispose-ból hívtuk, így a menedzselt részeket is takarítjuk
 
-            //menedzselt memória felszabadítása
-            managedMemory.Clear();
-            managedMemory = null;
+                //menedzselt IDisposable felületet használó példány felszabadítása
+                fileStream.Dispose();
+                fileStream = null;
+
+                //menedzselt memória felszabadítása
+                managedMemory.Clear();
+                managedMemory = null;
+
+            }
 
             //nem menedzselt memória felszabadítása
             Marshal.FreeHGlobal(unmanagedMemory);
@@ -73,11 +101,6 @@ namespace _01IDisposable
             GC.RemoveMemoryPressure(1000000);
 
             isDisposed = true;
-        }
-
-        ~ItselfCleaner()
-        {
-            Dispose();
         }
     }
 }

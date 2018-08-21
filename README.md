@@ -680,8 +680,6 @@ vagyis,
 - a véglegesítő függvény nem tudjuk, hogy mikor fut
 - legalább két ciklus szemétgyűjtés kell, hogy a memóriából kitakarítódjanak.
 
-
-
 ### Házi feladat
 - minden projektet futtatni linuxon
 - Dockert telepíteni és elérni, hogy fusson (docker info működik)
@@ -696,6 +694,9 @@ vagyis,
     - meghívjuk a Dispose függvényt a Finalizerből, hogyha elfelejtettünk volna using-ot használni.
     - gondoskodunk arról is, hogyha a using meghívta már a Dispose-t, akkor ez ne okozzon kivételt a Finalizerből hívva
     - párban implementáljuk a memória lefoglalását és felszabadítását
+    - Honnan hívkuk a Dispose-t?
+      - ha a using-ból hívjuk a Dispose-t, akkor takarítani kell mindent, 
+      - ha Finalizerből hívjuk a Dispose-t, akkor csak a nem menedzselt memóriát kell takarítani, a menedzseltet a GC intézi
 
 - [ ] IEnumerable minta áttekintése
 - [ ] Docker használata dotnet core alkalmazások fejlesztéséhez
