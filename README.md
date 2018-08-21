@@ -694,6 +694,7 @@ vagyis,
     - hogy ne kelljen mindig annyit gépelni, használhatjuk a using(...) {...} syntactic sugar-t is.
     - Implementáljuk a Dispose függvényt, hogy a using tudja használni
     - meghívjuk a Dispose függvényt a Finalizerből, hogyha elfelejtettünk volna using-ot használni.
+    - gondoskodunk arról is, hogyha a using meghívta már a Dispose-t, akkor ez ne okozzon kivételt a Finalizerből hívva
     - párban implementáljuk a memória lefoglalását és felszabadítását
 
 - [ ] IEnumerable minta áttekintése
