@@ -912,3 +912,28 @@ Docker build összefoglalása:
 - A dotnet kódban átnézni, hogy is oldották meg a fejlesztők az ```IEnumerable<T>/IEnumerator<T>``` [implementációt](https://referencesource.microsoft.com/#mscorlib/system/collections/generic/list.cs)
 
 
+### Kivételkezelés
+Alapvetően két féle megközelítése van a kivételkezésnek.
+
+A kivétel azt jelenti, hogy olyan helyzetbe kerül az alkalmazás, amire nincsen felkészítve. Erre adott válaszok a következők
+- mindegy, hogy hogy, de valahogy menjen tovább az alkalmazás (TELJESEN TILOS!!!!!!!)
+- minden elvégzendő feladat után valamilyen információt szerzünk, hogy sikeres volt-e vagy nem a végrehajtás (egyik megközelítés).
+  - minden függvény, és a visszaadott érték jelzi, hogy történt-e hiba (például az SQL tárolt eljárásoknál a visszatérési értékben szokták jelezni, hogy lefutott-e =0, vagy valami nem stimmel =1, vagy C függvények hívása)
+  - minden hívás után van egy általános állapotjelző, ami lekérdezhető (pl: ERRORLEVEL, API megközelítés)
+- struktúrált kivételkezelés (másik megközelítés)
+  - az alkalmazásnak van egy algoritmusa, amit normálisan lépésről lépésre végrehajt, és ez a forráskódból szépen látható.
+  - és van egy kivételkezelés, amikor a alkalmazás futásának folyamata megszakad és életbe lép a kivételkezelés folyamat
+
+
+#### Előnye
+- jól olvasható kódot eredményez
+- könnyebb tervezni
+- nehezebb elrontani
+- "nem a programozó, hanem a környezet kezeli" a kivételt
+
+#### Hátránya
+- több erőforrást igényel
+- a korábbi módon nem áttekinthető a hibakezelés
+- "nem a programozó, hanem a környezet kezeli" a kivételt
+
+
