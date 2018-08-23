@@ -51,7 +51,6 @@ namespace _02Exceptions
             catch (OutOfMemoryException) { } //ilyet lehet írni, mert az előzőhöz(ekhez) képest nincs közös halmaz
             catch (InvalidOperationException) { } //ilyet lehet írni, mert az előzőhöz(ekhez) képest nincs közös halmaz
             catch (SystemException) { } //egyre bővebb halmazra szűrhetek
-            //catch { } a 2.0 előtti .NET-ek esetén ilyen szűrés kellett ahhoz, hogy a keretrendszeren kívüli hibákat elkapjuk
             catch (RuntimeWrappedException) { } //https://docs.microsoft.com/en-us/dotnet/api/system.runtime.compilerservices.runtimewrappedexception.wrappedexception?redirectedfrom=MSDN&view=netframework-4.7.2#System_Runtime_CompilerServices_RuntimeWrappedException_WrappedException
             //a 2.0-ás dotnet-ben már létezik, ez szűri a keretrendszeren kívüli hibákat
             catch (Exception ex) //KÉT funkció: 1. paraméter átvétel 2. szűrés
@@ -67,6 +66,10 @@ namespace _02Exceptions
                 //throw;
             }
             //catch (SystemException) { } //ez viszont értelmetlen, hiszen a korábbi szűrés (Exception) már mindent beszűrt.
+            //catch { } a 2.0 előtti .NET-ek esetén ilyen szűrés kell ahhoz, hogy a keretrendszeren kívüli hibákat elkapjuk. Az a baj vele, hogy
+            //ez nem csak a keretrendszeren kívüli hibákat, hanem valamennyi exception-t beszűr, viszont a 2.0-tól a RuntimeWrappedException
+            //már direkt ezeket szűri, és az Exception-ből van leszármaztatva, így ennek nincs funkciója.
+            //2.0 előtt az Exception szűrés után téve tudja szűrni a keretrendszeren kívüli kivételeket
             finally
             { //akármi történt előtte, ebben az ágban ami van, az biztosan elkezd végrehajtódni
                 Console.WriteLine("Main finally indul");
