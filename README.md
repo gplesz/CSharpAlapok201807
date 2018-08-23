@@ -884,4 +884,13 @@ Docker build összefoglalása:
                                                      +--------------------------------------+
 ```
 
+### Feladatok: 
+- [ ] szigorúan típusos bejárható gyűjtemény készítése
+  - egy ilyen bejárásnál legalább négy szereplő van
+    - [X] az adatcsomag, amiből több van (Adat.cs)
+    - [X] ezeket az adatcsomagokat összefogja egy aggregátum, vagy gyűjtő osztály (Adatok.cs).
+    - [ ] ez az aggregátum képes TETSZŐLEGES adattípust használni
+    - [ ] ez implementálja a bejárható (IEnumerable) felületet, így egy foreach ciklus végig tud az elemein iterálni
+    - [ ] és van egy bejáró osztály (IEnumerator), amiből példányt a bejárható felület GetEnumerator() függvénye szolgáltat
+
 
