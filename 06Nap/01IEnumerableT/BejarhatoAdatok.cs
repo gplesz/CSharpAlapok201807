@@ -23,6 +23,7 @@ namespace _01IEnumerableT
     public class BejarhatoAdatok<TAdat> : IEnumerable<TAdat>, IEnumerator<TAdat>
     {
         List<TAdat> adatok = new List<TAdat>();
+        int position = -1;
 
         #region Adatok karbantartására szolgáló felület
         /// <summary>
@@ -46,11 +47,19 @@ namespace _01IEnumerableT
         #endregion Adatok karbantartására szolgáló felület
 
         #region IEnumerable<TAdat> implementáció
+        /// <summary>
+        /// A bejárót is ez az osztály valósítja meg, így visszaadjuk ezt a példányt 
+        /// </summary>
+        /// <returns>a BejarhatoAdatok példány, amiben az adatok vannak</returns>
         public IEnumerator<TAdat> GetEnumerator()
         {
             return this;
         }
 
+        /// <summary>
+        /// Az IEnumerator előtag segít megkülönböztetni a két felület ugyanolyan szignatúrájú függvényét
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return this;
@@ -59,13 +68,23 @@ namespace _01IEnumerableT
 
         #region IEnumerator<T> implementáció
 
-        public TAdat Current => throw new NotImplementedException();
+        /// <summary>
+        /// visszaadjuk az aktuális elemet
+        /// </summary>
+        public TAdat Current { get { return adatok[position]; } }
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        /// <summary>
+        /// Mivel a funkció már implementálva van generikusan,
+        /// így csak meg kell hvni.
+        /// 
+        /// Az IEnumerator előtag segít megkülönböztetni a két felület ugyanolyan szignatúrájú property getterét
+        /// </summary>
+        object IEnumerator.Current { get { return Current; } }
 
         public bool MoveNext()
         {
-            throw new NotImplementedException();
+            position++;
+            return position < adatok.Count;
         }
 
         public void Reset()
@@ -73,9 +92,14 @@ namespace _01IEnumerableT
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Mivel a generikus osztály minden alkalommel egy másik osztálytípust tartalmaz, 
+        /// így az lehet, hogy IDisposable és lehet, hogy nem. Erre csak úgy lehet felkészülni, 
+        /// hogy eleve megvalósítjuk az IDisposable felületet.
+        /// </summary>
         public void Dispose()
         {
-            throw new NotImplementedException();
+            //mivel most nincs takarítani valónk, így ezt nem kell implementálnunk.
         }
 
         #endregion IEnumerator<T> implementáció
