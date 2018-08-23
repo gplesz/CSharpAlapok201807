@@ -806,6 +806,9 @@ class Program                                                      |            
 - [X] Docker használata dotnet core alkalmazások fejlesztéséhez
 
 ```
+
+HOST Operációs rendszer
+
   Virtuális gép
 +--------------------------------------------------+
 |                                                  |
@@ -821,8 +824,11 @@ class Program                                                      |            
 +--------------------------------------------------+
 
 
+HOST Operációs rendszer
+--------------------------------------------------------------
 
  Konténer
+
 +--------------------------------------------------+
 |                                                  |
 |  Felületi wrapper az OS felé                     |
@@ -835,3 +841,47 @@ class Program                                                      |            
 |                                                  |
 +--------------------------------------------------+
 ```
+
+Docker build összefoglalása:
+
+(Három résztvevő)
+
+```
+                                                      Docker szerver (Linux vagy Windows konténerek kezelésére)
+                                                     +--------------------------------------+
+ Forráskód a windows könyvtárban                     |                                      |
+                                                     |                                      |
+ + Docker CLI                                        |                                      |
+                                                     |      +---------------------------+   |
++--------------------------+                         |      | Build konténer            |   |
+|                          |                         |      | /App                      |   |
+|                          |     BUILD               |      |                           |   |
+|                          |                         |      |  1. .csproj másolás       |   |  COPY (a windows könyvtárból)
+|                          |  +----------------->    |      |  2. nuget restore         |   |
+|                          |                         |      |  3. forráskód másolás     |   |  COPY (a windows könyvtárból)
+|                          |                         |      |  4. dotnet publish        |   |
+|  Dockerfile              |      <-------------+    |      |                           |   |
+|                          |      |                  |      |                           |   |
+|  + Docker CLI            |      |                  |      |                           |   |
+|                          |      |                  |      +---------------------------+   |
+|                          |      |                  |                                      |
+|                          |      |                  |                                      |
+|                          |      |                  |                                      |
+|                          |      |                  |      +---------------------------+   |
+|                          |      |                  |      | Runtime konténer          |   |
+|                          |      |                  |      |  /App                     |   |
+|                          |      |                  |      |                           |   |
+|                          |      |                  |      |  1. Másolás               |   |  COPY (A build konténerből)
+|                          |      |                  |      |                           |   |
+|                          |      |                  |      |  2. Indítási parancs      |   |
+|                          |      v +----------->    |      |                           |   |
+|                          |                         |      |                           |   |
+|                          |                         |      |                           |   |
++--------------------------+                         |      |                           |   |
+                                                     |      |                           |   |
+                                                     |      +---------------------------+   |
+                                                     |                                      |
+                                                     +--------------------------------------+
+```
+
+

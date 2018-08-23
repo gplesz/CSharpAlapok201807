@@ -49,6 +49,8 @@ namespace _03IEnumerable
             //ez a könnyebb megoldás: ha változik a lista, akkor dob egy kivételt.
             //a nehezebb: a saját osztályunk gondokodik arról, hogyha változik a belső állapot, akkor a futó
             //bejárások ne fussanak hibás helyzetbe
+            //A List<T> ezt úgy oldja meg, hogy kivételt dob, ha módosítani akarok bejárás közben.
+            //System.InvalidOperationException: 'Collection was modified; enumeration operation may not execute.'
             var shoppingList = new List<string>() { "1 kg marhahús", "só", "1 kg burgonya", "1 kg liszt" };
 
             foreach (var item in shoppingList)
