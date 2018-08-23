@@ -885,7 +885,7 @@ Docker build összefoglalása:
 ```
 
 ### Feladatok: 
-- [ ] szigorúan típusos bejárható gyűjtemény készítése
+- [X] szigorúan típusos bejárható gyűjtemény készítése
   - egy ilyen bejárásnál legalább négy szereplő van
     - [X] az adatcsomag, amiből több van (Adat.cs)
     - [X] ezeket az adatcsomagokat összefogja egy aggregátum, vagy gyűjtő osztály (BejarhatoAdatok.cs).
@@ -894,7 +894,21 @@ Docker build összefoglalása:
       - ezt a cimkét átvesszük "kacsacsőrök" között: ```<TAdat>```
       - majd amikor példányosítunk egyet az ilyen osztályból, konkrét típust adunk a cimkének
     - [X] ez implementálja a bejárható (IEnumerable) felületet, így egy foreach ciklus végig tud az elemein iterálni
-    - [ ] és van egy bejáró osztály (IEnumerator), amiből példányt a bejárható felület GetEnumerator() függvénye szolgáltat
-    - [ ] az utóbbi két szereplő lehet közös az előzővel (BejarhatoAdatok.cs)
+    - [X] és van egy bejáró osztály (IEnumerator), amiből példányt a bejárható felület GetEnumerator() függvénye szolgáltat
+    - [X] az utóbbi két szereplő lehet közös az előzővel (BejarhatoAdatok.cs)
+
+- [ ] Kivételkezelés
+  - [ ] Működése
+    - [ ] try-catch, try-catch-finally
+    - [ ] dotnet futásidejű kivételek kezelése
+  - [ ] teljesítménye
+
+- [ ] Naplózás
+
+
+### Házi feladat
+- Az ```IEnumerable<T>``` "debuggolása" hasonlóan az IEnumerable vizsgálatához (Console.WriteLine segítségével)
+- Annak a pszeudokódnak a megfejtése, hogy is nézhet ki ez a foreach, ha mi írnánk. (plesz.gabor@netacademia.hu)
+- A dotnet kódban átnézni, hogy is oldották meg a fejlesztők az ```IEnumerable<T>/IEnumerator<T>``` [implementációt](https://referencesource.microsoft.com/#mscorlib/system/collections/generic/list.cs)
 
 
