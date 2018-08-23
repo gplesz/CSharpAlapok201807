@@ -9,7 +9,7 @@ namespace _01IEnumerableT
             var adat = new Adat(szam: 1, szoveg: "Marhahús");
 
 
-            var adatok = new BejarhatoAdatok(); //két fontos szerepet visel: adat csomagokat tartalmaz és bejárhatóvá teszi őket
+            var adatok = new BejarhatoAdatok<Adat>(); //két fontos szerepet visel: adat csomagokat tartalmaz és bejárhatóvá teszi őket
 
 
             adatok.Add(adat);
@@ -18,7 +18,7 @@ namespace _01IEnumerableT
             adatok.Add(new Adat(szam: 4, szoveg: "Pirospaprika"));
 
 
-            Console.WriteLine("Hello World!");
+            Console.ReadLine();
         }
     }
 }

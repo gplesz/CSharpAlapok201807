@@ -11,16 +11,19 @@ namespace _01IEnumerableT
     /// Ráadásul a generikus definíció használatával tetszóleges típust 
     /// képes (szigorúan típusos módon) használni.
     /// </summary>
-    public class BejarhatoAdatok
+    /// <typeparam name="TAdat">
+    /// Ilyen típusú adatokat képes az osztály tárolni és karbantartani. Ennek fordítási időben már ki kell derülnie.
+    /// </typeparam>
+    public class BejarhatoAdatok<TAdat>
     {
-        List<Adat> adatok = new List<Adat>();
+        List<TAdat> adatok = new List<TAdat>();
 
         #region Adatok karbantartására szolgáló felület
         /// <summary>
         /// egy adatcsomagot hozzá tudunk adni a listánkhoz
         /// </summary>
         /// <param name="adat"></param>
-        public void Add(Adat adat)
+        public void Add(TAdat adat)
         {
             adatok.Add(adat);
         }
@@ -30,7 +33,7 @@ namespace _01IEnumerableT
         /// </summary>
         /// <param name="adat"></param>
         /// <returns></returns>
-        public bool Remove(Adat adat)
+        public bool Remove(TAdat adat)
         {
             return adatok.Remove(adat);
         }

@@ -888,8 +888,11 @@ Docker build összefoglalása:
 - [ ] szigorúan típusos bejárható gyűjtemény készítése
   - egy ilyen bejárásnál legalább négy szereplő van
     - [X] az adatcsomag, amiből több van (Adat.cs)
-    - [X] ezeket az adatcsomagokat összefogja egy aggregátum, vagy gyűjtő osztály (Adatok.cs).
+    - [X] ezeket az adatcsomagokat összefogja egy aggregátum, vagy gyűjtő osztály (BejarhatoAdatok.cs).
     - [ ] ez az aggregátum képes TETSZŐLEGES adattípust használni
+      - ehhez az osztályon belül a konkrét típus hivatkozást egy cimkével helyettesítjük
+      - ezt a cimkét átvesszük "kacsacsőrök" között: ```<TAdat>```
+      - majd amikor példányosítunk egyet az ilyen osztályból, konkrét típust adunk a cimkének
     - [ ] ez implementálja a bejárható (IEnumerable) felületet, így egy foreach ciklus végig tud az elemein iterálni
     - [ ] és van egy bejáró osztály (IEnumerator), amiből példányt a bejárható felület GetEnumerator() függvénye szolgáltat
 
