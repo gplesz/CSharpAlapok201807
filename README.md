@@ -923,6 +923,9 @@ A kivétel azt jelenti, hogy olyan helyzetbe kerül az alkalmazás, amire nincse
 - struktúrált kivételkezelés (másik megközelítés)
   - az alkalmazásnak van egy algoritmusa, amit normálisan lépésről lépésre végrehajt, és ez a forráskódból szépen látható.
   - és van egy kivételkezelés, amikor a alkalmazás futásának folyamata megszakad és életbe lép a kivételkezelés folyamat
+  - ilyenkor képződik egy kivétel (Exception) példány
+  - majd a kivételkezelés folyamatában "felbuborékozik" a megfelelő kivételeket kezelő pontra a végrehajtás ezzel az objektumpéldánnyal
+  - ami kezeli a kivételt
 
 
 #### Előnye
@@ -937,3 +940,22 @@ A kivétel azt jelenti, hogy olyan helyzetbe kerül az alkalmazás, amire nincse
 - "nem a programozó, hanem a környezet kezeli" a kivételt
 
 
+#### Kivételek "családfája"
+
+```
+                                                  Exception
+                                                      ^
+                                                      +
+                                              SystemException
+                                                      ^
+                                                      |
+                                                      +------------------------------------------------------------------------+
+                                                      |                                                                        +
+                                                      |                                                                 ArgumentException
+                                                      |                                                                        ^
+          +------------------------------------------>+ <-------------------------+                        +------------------>+<-----------------+
+          |                                           |                           |                        |                                      |
+          +                                           +                           +                        +                                      +
+NullReferenceException              InvalidOperationException          OutOfMemoryException     ArgumentOutOfRangeException           ArgumentNullException
+
+```
