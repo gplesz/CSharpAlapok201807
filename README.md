@@ -1029,3 +1029,6 @@ Exception  <-----+-------+  SystemException <---+
   - ```throw new Exception("saját kivétel", ex);``` (5. megközelítés) 
   - írjunk olyan kódot, ami az 5. megközelítés esetén, ki tudja olvasni a megfelelő információt.
   - a kivételkezelő események kipróbálása .NET Framework-ön is
+  - kipróbálni a log4net EventLog és RollingFile appender-t
+  - kipróbálni a log4net AdoNet appender-t
+
