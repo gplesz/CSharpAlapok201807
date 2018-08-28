@@ -978,10 +978,34 @@ Exception  <-----+-------+  SystemException <---+
 ```
 
 ### Feladatok
-- [ ] Kivételkezelés egymásba ágyazott végrehajtás esetén
-- [ ] Milyen információk állnak rendelkezésre egy mélyebb végrehajtási lánc (stack trace) esetén, és hogyan érdemes ezeket kezelni
-- [ ] Hogyan használjunk saját kivételeket
+- [X] Kivételkezelés egymásba ágyazott végrehajtás esetén
+- [X] Milyen információk állnak rendelkezésre egy mélyebb végrehajtási lánc (stack trace) esetén, és hogyan érdemes ezeket kezelni
+	- a .NET Framework környezetben a **throw** utasítás az aktuális függvényben a kivétel keletkezésének a helyét átírja a saját sorszámára.
+	- a .NET Core környezetben ilyesmi nem történik
+	- kivételkezelés megközelítések
+```
+                //1. elnyeljük a hibát, nincs throw-t
+                //2. "rethrow" továbbdobjuk a kivétel eggyel
+                throw;
+                //3. továbbdobjuk a kapott kivételt
+                throw ex;
+                //4. saját kivételt dobunk
+                throw new ApplicationException("Saját kivétel");
+                //5. saját kivételt dobunk, de becsomagoljuk a kapott kivételt
+                throw new ApplicationException("Saját kivétel", ex);
+				//ilyenkor az ex változóban lévő kivételt a létrehozott új kivétel InnerException mezőjébe beírtuk
+
+```
+    - mivel a .NET Frameworkben a kivétel keletkezési helyét a **throw** a saját sorszámára cseréli, ezért, ha throw-val akarunk továbbmenni, az egyetlen megoldás, ahol nem veszítünk információt az 5. megközelítés
+	- .NET Core-ban nincs ilyen probléma, használhatjuk a 2. megközelítést, de, ha olyan kódot szeretnénk írni, ami minkét környezetben ugyanúgy működik, akkor itt is az 5. megközelítést kell használnunk.
+	- a hívási veremben (stack trace) sorszám az debug információ, így csak akkor áll rendelkezésre, ha 1. debug módban fordítottunk és 2. rendelkezésre áll a pdb állomány.
+- [X] Hogyan használjunk saját kivételeket
 	- Az ApplicationException-ből származtassuk le az alkalmazásunk belső logikája szerint képződő kivételeket
 - [ ] Amennyiben csak naplózni szeretnénk a hibákat, akkor mit érdemes tenni?
 
-
+### Házi feladatok
+- a .NET FrameWork-ben/.NET Core-ban kipróbálni a következő hibakezelési megoldásokat (különös tekintettel a sorszámok kezelésére):
+  - ```throw ex;``` (3. megközelítés)
+  - ```throw new Exception();``` (4. megközelítés)
+  - ```throw new Exception("saját kivétel", ex);``` (5. megközelítés) 
+  - írjunk olyan kódot, ami az 5. megközelítés esetén, ki tudja olvasni a megfelelő információt.

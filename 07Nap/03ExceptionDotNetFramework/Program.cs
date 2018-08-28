@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace _02Exceptions
+namespace _03ExceptionDotNetFramework
 {
     /// <summary>
     /// végrehajtás Ctrl+F5-tel
@@ -24,7 +28,9 @@ namespace _02Exceptions
             {
                 Console.WriteLine("Main catch indul");
                 Console.WriteLine($"Main: {ex.ToString()}");
-                throw;
+                //throw;
+                //5. megközelítés
+                throw new ApplicationException("Main saját kivétel", ex);
                 Console.WriteLine("Main catch végez");
             }
             finally
@@ -46,7 +52,9 @@ namespace _02Exceptions
             {
                 Console.WriteLine("FoProgram catch indul");
                 Console.WriteLine($"FoProgram: {ex.ToString()}");
-                throw;
+                //throw;
+                //5. megközelítés
+                throw new ApplicationException("Főprogram saját kivétel", ex);
                 Console.WriteLine("FoProgram catch végez");
             }
             finally
@@ -61,14 +69,24 @@ namespace _02Exceptions
             try
             {
                 Console.WriteLine("Alprogram try indul");
-                throw new ConfuseCurrencyException("EUR utalást kéne végezni, de a megadott számla HUF!");
+                throw new Exception("EUR utalást kéne végezni, de a megadott számla HUF!");
                 Console.WriteLine("Alprogram try végez");
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Alprogram catch indul");
                 Console.WriteLine($"Alprogram: {ex.ToString()}");
-                throw;
+                //kivételkezelési megközelítések:
+                //1. elnyeljük a hibát, nincs throw-t
+                //2. "rethrow" továbbdobjuk a kivétel eggyel
+                //throw;
+                //3. továbbdobjuk a kapott kivételt
+                //throw ex;
+                //4. saját kivételt dobunk
+                //throw new ApplicationException("Saját kivétel");
+                //5. saját kivételt dobunk, de becsomagoljuk a kapott kivételt
+                throw new ApplicationException("Alprogram saját kivétel", ex);
+
                 Console.WriteLine("Alprogram catch végez");
             }
             finally
