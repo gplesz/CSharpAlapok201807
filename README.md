@@ -978,6 +978,7 @@ Exception  <-----+-------+  SystemException <---+
 ```
 
 ### Feladatok
+#### Kivételkezelés
 - [X] Kivételkezelés egymásba ágyazott végrehajtás esetén
 - [X] Milyen információk állnak rendelkezésre egy mélyebb végrehajtási lánc (stack trace) esetén, és hogyan érdemes ezeket kezelni
 	- a .NET Framework környezetben a **throw** utasítás az aktuális függvényben a kivétel keletkezésének a helyét átírja a saját sorszámára.
@@ -1004,6 +1005,22 @@ Exception  <-----+-------+  SystemException <---+
 - [X] Amennyiben csak naplózni szeretnénk a hibákat, akkor mit érdemes tenni?
 	- [Exception Drive Development](https://blog.codinghorror.com/exception-driven-development/)
 - [X] Kivételek teljesítményszükséglete
+#### Naplózás
+- [ ] [Log4Net](https://logging.apache.org/log4net/)
+	- Miért kell keretrendszer, miért nem jó amit magunknak összedobunk?
+	  - Azért mert sokkal bonyolultabb témába tenyerelünk, mnt azt egyáltalán képzelnénk
+	    - a lehető legkisebb "overhead"-et tegye hozzá az alkalmazásunkhoz
+		- külön legyen választva a napló bejegyzések létrehozása a konkrét napló kezelésétől (hova kerül a bejegyzés)
+		- legyen a napló **futásidőben** konfigurálható!
+	  - a Log4Net (Log4J) ezek mentén íródott
+	  - további szempontok
+	    - szeretnénk a naplóbejegyzések csoportosítani
+		  - bejegyzés típusa szerint, amit az alkalmazás ad
+		  - bejegyzés helye szerint, ahol a kódban előfordul
+		  - bejegyzés figyelemre méltósága szerint (súlya szerint)
+		- szeretnénk szűrni bejegyzéseket
+
+
 
 ### Házi feladatok
 - a .NET FrameWork-ben/.NET Core-ban kipróbálni a következő hibakezelési megoldásokat (különös tekintettel a sorszámok kezelésére):
