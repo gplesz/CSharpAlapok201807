@@ -1001,8 +1001,9 @@ Exception  <-----+-------+  SystemException <---+
 	- a hívási veremben (stack trace) sorszám az debug információ, így csak akkor áll rendelkezésre, ha 1. debug módban fordítottunk és 2. rendelkezésre áll a pdb állomány.
 - [X] Hogyan használjunk saját kivételeket
 	- Az ApplicationException-ből származtassuk le az alkalmazásunk belső logikája szerint képződő kivételeket
-- [ ] Amennyiben csak naplózni szeretnénk a hibákat, akkor mit érdemes tenni?
+- [X] Amennyiben csak naplózni szeretnénk a hibákat, akkor mit érdemes tenni?
 	- [Exception Drive Development](https://blog.codinghorror.com/exception-driven-development/)
+- [X] Kivételek teljesítményszükséglete
 
 ### Házi feladatok
 - a .NET FrameWork-ben/.NET Core-ban kipróbálni a következő hibakezelési megoldásokat (különös tekintettel a sorszámok kezelésére):

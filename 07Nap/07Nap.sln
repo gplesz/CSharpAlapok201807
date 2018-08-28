@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02Exceptions", "02Exception
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03ExceptionDotNetFramework", "03ExceptionDotNetFramework\03ExceptionDotNetFramework.csproj", "{3A9CCA15-F28D-4DDB-AB80-80943352F675}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04ExceptionPerformance", "04ExceptionPerformance\04ExceptionPerformance.csproj", "{08C3E85F-6AFD-475C-A095-59BFCD10A95D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05ExceptionPerformanceDotNetFramework", "05ExceptionPerformanceDotNetFramework\05ExceptionPerformanceDotNetFramework.csproj", "{CBAA75C9-4C50-4869-9926-25BEC03EA920}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{3A9CCA15-F28D-4DDB-AB80-80943352F675}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A9CCA15-F28D-4DDB-AB80-80943352F675}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A9CCA15-F28D-4DDB-AB80-80943352F675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08C3E85F-6AFD-475C-A095-59BFCD10A95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C3E85F-6AFD-475C-A095-59BFCD10A95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C3E85F-6AFD-475C-A095-59BFCD10A95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C3E85F-6AFD-475C-A095-59BFCD10A95D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBAA75C9-4C50-4869-9926-25BEC03EA920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBAA75C9-4C50-4869-9926-25BEC03EA920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBAA75C9-4C50-4869-9926-25BEC03EA920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAA75C9-4C50-4869-9926-25BEC03EA920}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
