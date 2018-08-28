@@ -1006,7 +1006,7 @@ Exception  <-----+-------+  SystemException <---+
 	- [Exception Drive Development](https://blog.codinghorror.com/exception-driven-development/)
 - [X] Kivételek teljesítményszükséglete
 #### Naplózás
-- [ ] [Log4Net](https://logging.apache.org/log4net/)
+- [X] [Log4Net](https://logging.apache.org/log4net/)
 	- Miért kell keretrendszer, miért nem jó amit magunknak összedobunk?
 	  - Azért mert sokkal bonyolultabb témába tenyerelünk, mnt azt egyáltalán képzelnénk
 	    - a lehető legkisebb "overhead"-et tegye hozzá az alkalmazásunkhoz
@@ -1019,7 +1019,7 @@ Exception  <-----+-------+  SystemException <---+
 		  - bejegyzés helye szerint, ahol a kódban előfordul
 		  - bejegyzés figyelemre méltósága szerint (súlya szerint)
 		- szeretnénk szűrni bejegyzéseket
-
+- [ ] Serilog
 
 
 ### Házi feladatok
