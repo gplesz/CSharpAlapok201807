@@ -1031,4 +1031,4 @@ Exception  <-----+-------+  SystemException <---+
   - a kivételkezelő események kipróbálása .NET Framework-ön is
   - kipróbálni a log4net EventLog és RollingFile appender-t
   - kipróbálni a log4net AdoNet appender-t
-
+  - implementálni a kivételek naplózását
