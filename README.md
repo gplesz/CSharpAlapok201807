@@ -944,7 +944,7 @@ A kivétel azt jelenti, hogy olyan helyzetbe kerül az alkalmazás, amire nincse
 [teljes felsőszintű hierarchia itt megtekinthető](https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/z4c5tckx(v=vs.100))
 
 ```
-                                                <----+ InvalidOutOfRangeException
+                                                ^----+ In^alidOutOfRangeException
                                                 |
                                                 |
                                                 |
@@ -954,24 +954,26 @@ A kivétel azt jelenti, hogy olyan helyzetbe kerül az alkalmazás, amire nincse
                                                 |
                                                 |
                                                 |
-                                                <----+ AccessviolationException
+                                                <----+ Access^iolationException
                                                 |
                                                 |
                                                 v
-Exception  <-------------+  SystemException <--->
-                                                +----+ InvalidOperationException
-                                                ^
-                                                |
-                                                |
-                                                |                           +----------------+ ArgumentNullException
-                                                |                           |
-                                                +----+ ArgumentException <--v----------------+ ArgumentoutOfrangeException
-                                                |
-                                                |
-                                                |                           +---------------+  ComException
-                                                +----+ ExternalException <--+
-                                                                            |
-                                                                            +---------------+  SEHException
+Exception  <-----+-------+  SystemException <---+
+                 ^                              +----+ In^alidOperationException
+                 |                              ^
+                 |                              |
+                 |                              |
+                 |                              |                           +----------------+ ArgumentNullException
+                 |                              |                           |
+                 |                              +----+ ArgumentException <--v----------------+ ArgumentoutOfrangeException
+                 |                              |
+                 |                              |
+                 |                              |                           +---------------+  ComException
+                 |                              +----+ ExternalException <--+
+                 |                                                          |
+                 |                                                          +---------------+  SEHException
+                 |
+                 <--------+  ApplicationException
 
 ```
 
@@ -979,6 +981,7 @@ Exception  <-------------+  SystemException <--->
 - [ ] Kivételkezelés egymásba ágyazott végrehajtás esetén
 - [ ] Milyen információk állnak rendelkezésre egy mélyebb végrehajtási lánc (stack trace) esetén, és hogyan érdemes ezeket kezelni
 - [ ] Hogyan használjunk saját kivételeket
+	- Az ApplicationException-ből származtassuk le az alkalmazásunk belső logikája szerint képződő kivételeket
 - [ ] Amennyiben csak naplózni szeretnénk a hibákat, akkor mit érdemes tenni?
 
 

@@ -7,6 +7,11 @@ namespace _02Exceptions
     /// </summary>
     class Program
     {
+        /// <summary>
+        /// Az egymásba ágyazott hibakezelési struktúra függvényhívások nélkül is lehetséges
+        /// ugyanígy működik, ha direktben a Main kódba írtuk volna a három blokkot - egymásba ágyazva
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             try
@@ -54,7 +59,7 @@ namespace _02Exceptions
             try
             {
                 Console.WriteLine("Alprogram try indul");
-
+                throw new ConfuseCurrencyException("EUR utalást kéne végezni, de a megadott számla HUF!");
                 Console.WriteLine("Alprogram try végez");
             }
             catch (Exception)
