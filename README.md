@@ -1002,6 +1002,7 @@ Exception  <-----+-------+  SystemException <---+
 - [X] Hogyan használjunk saját kivételeket
 	- Az ApplicationException-ből származtassuk le az alkalmazásunk belső logikája szerint képződő kivételeket
 - [ ] Amennyiben csak naplózni szeretnénk a hibákat, akkor mit érdemes tenni?
+	- [Exception Drive Development](https://blog.codinghorror.com/exception-driven-development/)
 
 ### Házi feladatok
 - a .NET FrameWork-ben/.NET Core-ban kipróbálni a következő hibakezelési megoldásokat (különös tekintettel a sorszámok kezelésére):
@@ -1009,3 +1010,4 @@ Exception  <-----+-------+  SystemException <---+
   - ```throw new Exception();``` (4. megközelítés)
   - ```throw new Exception("saját kivétel", ex);``` (5. megközelítés) 
   - írjunk olyan kódot, ami az 5. megközelítés esetén, ki tudja olvasni a megfelelő információt.
+  - a kivételkezelő események kipróbálása .NET Framework-ön is

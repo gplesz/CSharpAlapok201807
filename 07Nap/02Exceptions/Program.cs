@@ -7,6 +7,20 @@ namespace _02Exceptions
     /// </summary>
     class Program
     {
+        private static void CurrentDomain_FirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
+        {
+            Console.WriteLine($"--- FirstChanceException ---");
+            Console.WriteLine($"{e.Exception.ToString()}");
+            Console.WriteLine($"--- FirstChanceException ---");
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            Console.WriteLine($"--- UnhandledException ---");
+            Console.WriteLine($"{((Exception)e.ExceptionObject).ToString()}");
+            Console.WriteLine($"--- UnhandledException ---");
+        }
+
         /// <summary>
         /// Az egymásba ágyazott hibakezelési struktúra függvényhívások nélkül is lehetséges
         /// ugyanígy működik, ha direktben a Main kódba írtuk volna a három blokkot - egymásba ágyazva
@@ -14,6 +28,10 @@ namespace _02Exceptions
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;
+
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+
             try
             {
                 Console.WriteLine("Main try indul");
