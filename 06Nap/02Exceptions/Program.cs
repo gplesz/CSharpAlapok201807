@@ -3,6 +3,9 @@ using System.Runtime.CompilerServices;
 
 namespace _02Exceptions
 {
+    /// <summary>
+    /// végrehajtás Ctrl+F5-tel
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
