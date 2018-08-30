@@ -11,9 +11,25 @@ namespace _07Serilog
             //A Serilog Logger statikus property-je mindenhonnan elérhető az alkalmazásunkból
             Serilog.Log.Logger = new Serilog.LoggerConfiguration()
                                             .WriteTo.Console()
+                                            .WriteTo.File(".\\serilog.log")
                                             .CreateLogger();
+            try
+            {
+                LogTest();
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, "Program termiated unsuccesfully");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
 
+        }
 
+        private static void LogTest()
+        {
             var r = new Random();
 
             while (!Console.KeyAvailable) //addig fut, amíg nem ütöttünk le billentyűt
