@@ -5,7 +5,7 @@ namespace _08StrategyPattern
     public class DataStoreWithStrategy
     {
         private int[] data;
-        private SumOfOddStrategy strategy;
+        private IStrategy strategy;
 
         public DataStoreWithStrategy(int[] data)
         {
@@ -17,7 +17,7 @@ namespace _08StrategyPattern
             return strategy.Process(data);
         }
 
-        public void SetStrategy(SumOfOddStrategy strategy)
+        public void SetStrategy(IStrategy strategy)
         {
             this.strategy = strategy;
         }

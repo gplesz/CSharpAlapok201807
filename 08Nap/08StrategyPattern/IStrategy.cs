@@ -8,7 +8,7 @@ namespace _08StrategyPattern
     /// Valamennyi műveletvégzés "arca"
     /// minden (strategy) osztálynak implementálni kell a műveletvégző függvényt ebben a formában
     /// </summary>
-    interface IStrategy
+    public interface IStrategy
     {
         int Process(int[] data);
     }

@@ -21,7 +21,7 @@ namespace _08StrategyPattern
             var storeWStrategy = new DataStoreWithStrategy(data: new int[] { 1, 3, 4, 5, 7, 8, 10, 15, 30 });
 
             //példányosítunk egy műveletvégző osztályt
-            var strategy = new SumOfOddStrategy();
+            IStrategy strategy = new SumOfOddStrategy();
 
             //átadjuk az adatokat tároló osztálynak
             storeWStrategy.SetStrategy(strategy);
@@ -31,6 +31,15 @@ namespace _08StrategyPattern
 
             Console.WriteLine($"Páratlanok összege: {sum}");
 
+            strategy = new ProductOfEvenStrategy();
+
+            //átadjuk az adatokat tároló osztálynak
+            storeWStrategy.SetStrategy(strategy);
+
+            //majd kérjük, hogy végezze el a műveletet
+            sum = storeWStrategy.Process();
+
+            Console.WriteLine($"Párosok szorzata: {sum}");
 
             Console.ReadLine();
         }

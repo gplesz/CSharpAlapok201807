@@ -1079,6 +1079,8 @@ Exception  <-----+-------+  SystemException <---+
 	  - szeretném, ha be tudnám zárni az osztályomba az adatok kezelését, 
 	  - DE nem szeretném minden esetben változtatni, ha újabb és újabb algoritmusok merülnek fel
 	  - Megoldás: a művelet végzést szervezzük ki egy külön osztályba (Strategy osztály).
+	  - és hogy több féle stratégiát is tudjunk használni, erről egy felület szóljon, amire az adattároló fel van készítve.
+	  - [Szivárgó Absztrakciók törvénye](http://hungarian.joelonsoftware.com/Articles/LeakyAbstractions.html)
 
 	- [ ] Delegate
 - [ ] Megfigyelő minta, események
