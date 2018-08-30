@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06Log4Net", "06Log4Net\06Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07Serilog", "07Serilog\07Serilog.csproj", "{F1BE4152-0877-4FB1-9D39-B526D2B094F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08StrategyPattern", "08StrategyPattern\08StrategyPattern.csproj", "{394651C8-B0D9-4D49-AB51-F2D867972AC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F1BE4152-0877-4FB1-9D39-B526D2B094F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1BE4152-0877-4FB1-9D39-B526D2B094F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1BE4152-0877-4FB1-9D39-B526D2B094F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{394651C8-B0D9-4D49-AB51-F2D867972AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{394651C8-B0D9-4D49-AB51-F2D867972AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{394651C8-B0D9-4D49-AB51-F2D867972AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{394651C8-B0D9-4D49-AB51-F2D867972AC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1073,7 +1073,12 @@ Exception  <-----+-------+  SystemException <---+
 		- a serilog **Sink**-nek hívja azt, amit a log4net **Appender**nek, a microsoft debug pedig **Listener**nek.
 		- .NET Core a nuget csomagkezelést a *.csproj-ban oldja meg.
 - [ ] Stratégia minta, Delegate
-	- [ ] Stratégia minta
+	- [ ] [Stratégia minta](https://hu.wikipedia.org/wiki/Strat%C3%A9gia_programtervez%C3%A9si_minta)
+	  - Készítünk egy adattároló osztályt, 
+	  - majd különböző műveleteket végzünk vele.
+	  - szeretném, ha be tudnám zárni az osztályomba az adatok kezelését, 
+	  - DE nem szeretném minden esetben változtatni, ha újabb és újabb algoritmusok merülnek fel
+
 	- [ ] Delegate
 - [ ] Megfigyelő minta, események
 
