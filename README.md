@@ -1082,6 +1082,40 @@ Exception  <-----+-------+  SystemException <---+
 	  - és hogy több féle stratégiát is tudjunk használni, erről egy felület szóljon, amire az adattároló fel van készítve.
 	  - [Szivárgó Absztrakciók törvénye](http://hungarian.joelonsoftware.com/Articles/LeakyAbstractions.html)
 
+```
++---------------------------------+                                                               |  ProductOfEvenStrategy        |
+|                                 |                  +------------------------------+             +-------------------------------+
+| DataStoreWithStrategy           |                  |                              |             |                               |
+|                                 |                  | IStrategy                    |             |                               |
++---------------------------------+                  |                              |             |    int Process(int[] data)    |
+| Fields                          |                  +------------------------------+             |                               |
+|                                 |                  |                              |             |                               |
+| IStrategy strategy     +-------------------------> |                              |             |                               |
+|                                 |                  |  int Process(int[] data)     |             |                               |
+| int[] data   +-------->         |                  |                              |             |                               |
+|                       |         |                  |                              |             +-------------------------------+
+|                       |         |                  |                              |
+|                       |         |                  +------------------------------+
++---------------------------------+
+| Methods               |         |                                    ^
+|                       |         |                                    |                          +-------------------------------+
+|                       |         |                                    |                          |  SumOfOddStrategy             |
+|                       |         |                                    |                          +-------------------------------+
+|                       |         |                                    |                          |                               |
+| int Process           v--------------->+                             |                          |                               |
+|                                 |      ^                             |                          |    int Process(int[] data)    |
+|   return strategy.Process(data) +------+---->------------------------>                          |                               |
+|                                 |                                                               |                               |
+|                                 |                                                               |                               |
+|                                 |                                                               |                               |
+|                                 |                                                               |                               |
+|                                 |                                                               +-------------------------------+
+|                                 |
+|                                 |
+|                                 |
++---------------------------------+
+```
+
 	- [ ] Delegate
 - [ ] Megfigyelő minta, események
 
