@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07Serilog", "07Serilog\07Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08StrategyPattern", "08StrategyPattern\08StrategyPattern.csproj", "{394651C8-B0D9-4D49-AB51-F2D867972AC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09Delegate", "09Delegate\09Delegate.csproj", "{9989EB74-CF42-4BFA-B474-CBEC5D728CD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{394651C8-B0D9-4D49-AB51-F2D867972AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394651C8-B0D9-4D49-AB51-F2D867972AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{394651C8-B0D9-4D49-AB51-F2D867972AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9989EB74-CF42-4BFA-B474-CBEC5D728CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9989EB74-CF42-4BFA-B474-CBEC5D728CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9989EB74-CF42-4BFA-B474-CBEC5D728CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9989EB74-CF42-4BFA-B474-CBEC5D728CD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

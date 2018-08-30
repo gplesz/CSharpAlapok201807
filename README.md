@@ -1117,6 +1117,11 @@ Exception  <-----+-------+  SystemException <---+
 ```
 
 	- [ ] Delegate
+		- ne csak adatokat lehessen változóba tárolni, hanem függvényeket (method) is 
+
 - [ ] Megfigyelő minta, események
 
 
+### Házi feladat
+-- implementálni a ProductOfEven függvényt és felhasználni mindkét formában (függvény és lambda)
+-- írjátok meg ezt a kódot egyedül 
