@@ -1067,8 +1067,11 @@ Exception  <-----+-------+  SystemException <---+
 +-------------------------+          +----------------+                         +---------------------------+
 ```
 
-- [ ] Serilog
-	- ASP.NET Core alapokon
+- [ ] [Serilog](https://serilog.net/)
+	- .NET Core alapokon
+		- a naplózó rendszer kis csomagokra van bontva, így csak azt kell telepíteni, amit tényleg használunk
+		- a serilog **Sink**-nek hívja azt, amit a log4net **Appender**nek, a microsoft debug pedig **Listener**nek.
+		- .NET Core a nuget csomagkezelést a *.csproj-ban oldja meg.
 - [ ] Stratégia minta, Delegate
 	- [ ] Stratégia minta
 	- [ ] Delegate
