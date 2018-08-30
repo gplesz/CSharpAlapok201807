@@ -1037,9 +1037,41 @@ Exception  <-----+-------+  SystemException <---+
 ### Feladatok
 - [ ] Log4Net
 	- kipróbálni a log4net AdoNet appender-t
+		- kivételek kezelésére jó lehet, 
+		- nagy teljesítmény és adatmennyiség igényű (pl. debug napló) naplózásra kifejezetten antipattern!! (Ebben az esetben valami naplózásra kitalált dologra van szükség, pl: [ELK Stack: ElasticSearch+LogStash+Kibana, RabbitMQ])
+```
+                                        Appenderek
+  Alkalmazás
++-------------------------+          +----------------+
+|                         |          |                |
+|                         | +------> | Console        |
+|                         |          |                |
+|                         |          +----------------+
+|                         |
+|                         |          +----------------+
+|                         |          |                |
+|                         | +------> | File           |
+|                         |          |                |
+|                         |          +----------------+
+|                         |
+|                         |                                                       Adatbázis
+|                         |          +----------------+                         +---------------------------+
+|                         |          |                |                         |   Naplótábla              |
+|                         | +------> | AdoNet         |                         |  +--------------------+   |
+|                         |          |                |                         |  |                    |   |
+|                         |          |                | +---------------------> |  |                    |   |
+|                         |          |                |                         |  |                    |   |
+|                         |          |                |                         |  +--------------------+   |
+|                         |          |                |                         |                           |
+|                         |          |                |                         |                           |
++-------------------------+          +----------------+                         +---------------------------+
+```
+
 - [ ] Serilog
 	- ASP.NET Core alapokon
 - [ ] Stratégia minta, Delegate
 	- [ ] Stratégia minta
 	- [ ] Delegate
 - [ ] Megfigyelő minta, események
+
+
