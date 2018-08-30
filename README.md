@@ -1078,6 +1078,7 @@ Exception  <-----+-------+  SystemException <---+
 	  - majd különböző műveleteket végzünk vele.
 	  - szeretném, ha be tudnám zárni az osztályomba az adatok kezelését, 
 	  - DE nem szeretném minden esetben változtatni, ha újabb és újabb algoritmusok merülnek fel
+	  - Megoldás: a művelet végzést szervezzük ki egy külön osztályba (Strategy osztály).
 
 	- [ ] Delegate
 - [ ] Megfigyelő minta, események
