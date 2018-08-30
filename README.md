@@ -1032,3 +1032,14 @@ Exception  <-----+-------+  SystemException <---+
   - kipróbálni a log4net EventLog és RollingFile appender-t
   - kipróbálni a log4net AdoNet appender-t
   - implementálni a kivételek naplózását
+
+
+### Feladatok
+- [ ] Log4Net
+	- kipróbálni a log4net AdoNet appender-t
+- [ ] Serilog
+	- ASP.NET Core alapokon
+- [ ] Stratégia minta, Delegate
+	- [ ] Stratégia minta
+	- [ ] Delegate
+- [ ] Megfigyelő minta, események
