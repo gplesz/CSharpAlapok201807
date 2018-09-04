@@ -79,7 +79,17 @@ namespace _11FuncActionLambda
             //Action 
             //Action<int, int, int, ... int>
 
+            // A Func egy nem void-dal visszatérő delegate definíciót jelent:
+            //ugyanaz, mint az Action, csak az utolsó típusparaméter a függvény 
+            //visszatérési értékét jelenti:
 
+            Func<int, int> squaringProcessList2 = x => x * x;
+
+            Console.WriteLine($"3 négyzetre emelve: {squaringProcessList2(3)}");
+
+            Func<int, int, string> multiplicationProcessList2 = (i, j) => $"{i} és {j} szorzata: {i * j}";
+
+            Console.WriteLine(multiplicationProcessList2(5,6));
 
 
             Console.ReadLine();
@@ -94,8 +104,6 @@ namespace _11FuncActionLambda
         {
             return x * x;
         }
-
-
 
     }
 }

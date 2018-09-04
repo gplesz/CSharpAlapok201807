@@ -1129,8 +1129,8 @@ Exception  <-----+-------+  SystemException <---+
 
 ### Feladatok
 - [X] Delegate definíció és használat részletesen
-- [ ] Action, Func definíció és használat
-- [ ] Lambda kifejezések és használatuk
+- [X] Action, Func definíció és használat
+- [X] Lambda kifejezések és használatuk
 
 #### Delegate definíció
 
@@ -1189,3 +1189,5 @@ a delegate használatához 3 (4) lépésre van szükség, hogy tudnánk ezeket a
 
 ### Házi Feladat
 - A 09 delegate példával játszani: több hívást tenni egy listára
+- A múlt csütörtöki alkalom kódját átnézni még egyszer
+
