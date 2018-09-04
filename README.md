@@ -1183,3 +1183,6 @@ Exception  <-----+-------+  SystemException <---+
                                                     (...)
 
 ```
+
+### Házi Feladat
+- A 09 delegate példával játszani: több hívást tenni egy listára
