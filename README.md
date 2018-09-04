@@ -1128,11 +1128,11 @@ Exception  <-----+-------+  SystemException <---+
 
 
 ### Feladatok
-- [ ] Delegate definíció és használat részletesen
+- [X] Delegate definíció és használat részletesen
 - [ ] Action, Func definíció és használat
 - [ ] Lambda kifejezések és használatuk
 
-### Delegate definíció
+#### Delegate definíció
 
  Delegate: hasonlóan az adatokat kezelő (tároló) változókhoz
    szükségünk lehet az algoritmusainkat (függvényeinket) kezelő/tároló változókra
@@ -1183,6 +1183,9 @@ Exception  <-----+-------+  SystemException <---+
                                                     (...)
 
 ```
+
+#### Action, Func, Lambda
+a delegate használatához 3 (4) lépésre van szükség, hogy tudnánk ezeket a lépéseket egyszerűbbé/kevesebbé tenni???
 
 ### Házi Feladat
 - A 09 delegate példával játszani: több hívást tenni egy listára
