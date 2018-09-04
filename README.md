@@ -1125,3 +1125,10 @@ Exception  <-----+-------+  SystemException <---+
 ### Házi feladat
 -- implementálni a ProductOfEven függvényt és felhasználni mindkét formában (függvény és lambda)
 -- írjátok meg ezt a kódot egyedül 
+
+
+### Feladatok
+- [ ] Delegate definíció és használat részletesen
+- [ ] Action, Func definíció és használat
+- [ ] Lambda kifejezések és használatuk
+
