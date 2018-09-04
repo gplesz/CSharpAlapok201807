@@ -35,19 +35,52 @@ namespace _11FuncActionLambda
             //ahol hivatkoznánk a függvény neve már nem is kell
 
             //ha egy paraméter van, ÉS csak egy kifejezést használok akkor nem kellenek zárójelek () {}
-            squaringProcesslist = x => x * x;
+            squaringProcesslist = y => y * y;
 
             //ugyanez kódblokkban:
             squaringProcesslist = (x) => { return x * x; };
             //kódblokkban akárhány sort használhatok már:
 
-            squaringProcesslist = (x) => 
+            squaringProcesslist = (integerNum) => 
             {
-                Console.WriteLine($"négyzetre emelek, paraméter: {x}");
-                return x * x;
+                Console.WriteLine($"négyzetre emelek, paraméter: {integerNum}");
+                return integerNum * integerNum;
             };
 
             Console.WriteLine($"2 a négyzeten: {squaringProcesslist(2)}");
+
+            /////////////////////////////////////
+            //2. csökkentő lépés: Action és Func
+            /////////////////////////////////////
+
+            //az Action és a Func előre definiált delegate, amik segítenek az 1. pont eliminálásában.
+            //
+            //az Action<> egy void típusú delegate-et definiálni
+            //mivel visszatérő értékre nincs szükség (void)
+            //névre nincs szükség (az Action-t oda írom, ahova a nevet írnám, az csak egy hivatkozés
+            //a paraméterek neve csak formális, 
+            //itt amire szükségem van, az a paraméterek típusának felsorolása
+
+            // az
+            // Action<T1,T2,...,TN> 
+            // az egyenértékű a  
+            // delegate void XXX(T1 t1, T2 t2, ... , T3 t3) 
+            // definícióval, amit a .NET környezet fejlesztői elhelyeztek előre az objektumkönyvtárba.
+
+            Action<int, int> multiplicationProcessList = (a, b) => Console.WriteLine($"A szorzás eredménye: {a * b}");
+
+            //vagy kódblokkal:
+            multiplicationProcessList = (a, b) => 
+            {
+                Console.WriteLine($"A szorzás eredménye: {a * b}");
+            };
+
+            //a nulla bejövő paramétertől a 16 bejövő paraméterig ez a .NET környezet része:
+            //Action 
+            //Action<int, int, int, ... int>
+
+
+
 
             Console.ReadLine();
         }
