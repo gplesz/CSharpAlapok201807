@@ -1132,3 +1132,54 @@ Exception  <-----+-------+  SystemException <---+
 - [ ] Action, Func definíció és használat
 - [ ] Lambda kifejezések és használatuk
 
+### Delegate definíció
+
+ Delegate: hasonlóan az adatokat kezelő (tároló) változókhoz
+   szükségünk lehet az algoritmusainkat (függvényeinket) kezelő/tároló változókra
+   
+ Használatához 3 lépés szükséges
+ 1. hasonlóan az adatokat kezelő változókhoz, rögzíteni kell egy típust, majd a változóba csak az adott típusú adat kerülhet.
+    ez a típusdefiníció maga a delegate
+    ez tisztázza 
+    1.a. a függvény visszatérési értékét 
+    1.b. és a szignatúráját, 
+    1.c. valamint a definíciónak ad egy nevet
+    
+ 2. hasonlóan az adatokat kezelő változóhoz, fel kell tölteni "adattal". 
+    2.a. definiálni kell függvény(eke)t
+    2.b. ez(eke)t a definíció(ke)t össze kell rendelni a változóval. ("értékadás")
+    egy kicsit máshogy mondva
+    C# ban a delegate un. Multicast delegate
+    vagyis: a delegate típusú változó egy híváslistát tartalmaz
+ 
+ 3. hasonlóan a változ használatához: szükségem van a benne tároplt értékre
+	a híváslista meghívása
+	ilyenkor a dotnet környezet mindegyik függvényhivatkozást meghívja, ami a hívslistán szerepel
+	garantálja, hogy mindegyik meg lesz hívva, de azt nem, hogy milyen sorrendben.
+
+
+
+```
+1. lépés: típusdefiníció                         2. lépés: változó értékének a megadása          3. lépés: meghívás
+                                                    (híváslista feltöltés)
+                                                                                                       +
++-int (string, int)----+                         +--int-(string,-int)--------+                         |
+|                      |                         |                           |                         |
+|                      |                         | +-----------------------+ |                         |
+|                      |                         | |                       | |    <--------------------+
+|                      |                         | |                       | |                         |
++----------------------+                         | +-----------------------+ |                         |
+                                                 |                           |                         |
+                                                 | +-----------------------+ |                         |
+                                                 | |                       | |    <--------------------+
+                                                 | |                       | |                         |
+                                                 | +-----------------------+ |                         |
+                                                 |                           |                         |
+                                                 | +-----------------------+ |                         |
+                                                   |                       |                           |
+                                                   |                       |      <--------------------+
+                                                   +-----------------------+
+
+                                                    (...)
+
+```
