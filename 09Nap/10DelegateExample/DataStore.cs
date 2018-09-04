@@ -38,6 +38,31 @@ namespace _10DelegateExample
         /// </param>
         public void ProcessData(FuncDef processList)
         {
+
+            //ez a legerősebb retorzió, abban az esetben, hogyha a listánk nem lehet üres.
+            //azonban a híváslista nem thread safe, így amíg mi olvassuk, addig más írhatja
+            //ekkor, ha valaki éppen leiratkozik a híváslistáról, amíg mi kiolvassuk
+            //most lehet, hogy nem üres, azonban mire felhasználnánk, már lehet, hogy üres LESZ.
+            //if (processList == null)
+            //{
+            //    throw new ArgumentNullException(nameof(processList));
+            //}
+
+            /////////////////////////////////////////////////
+            //ezért a korábbiak helyett ezt érdemes használni
+            /////////////////////////////////////////////////
+
+            //értéktípusként a teljes lista lemásolódik
+            var processListBackup = processList;
+            if (processListBackup==null)
+            { //mivel ez a lista itt lokális, más szál nem fér hozzá, így az értéke 
+              //(a rajta szereplő függvény hivatkozások értéke)
+              //nem változik meg más szálon
+                throw new ArgumentNullException(nameof(processList));
+                //vagy nem csinálunk semmit
+                //return;
+            }
+
             ///for ciklus kell, mert a foreach ciklus
             ///bejárót használ a List osztály példányán, 
             ///így amíg a ciklus tart nem módosíthatom
@@ -47,7 +72,19 @@ namespace _10DelegateExample
                 //kivesszük a lista elem érték
                 var item = lines[i];
                 //ezt beküldjük a híváslistának
-                processList(ref item);
+
+
+                //közvetlenül a hívás előtt is végezhetünk null vizsgálatot:
+                //akár ebben a formában is:
+                //processList?.Invoke(ref item);
+
+                //ez ugyanez mint ez:
+                var procList = processList;
+                if (procList!=null)
+                {
+                    processList(ref item);
+                }
+
                 //a módosított értéket visszaírjuk a listába
                 lines[i] = item;
             }

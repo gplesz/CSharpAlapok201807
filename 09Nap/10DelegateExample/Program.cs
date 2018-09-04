@@ -35,7 +35,9 @@ namespace _10DelegateExample
 
             //a korábbi műveleteket úgy is el tudom intézni, 
             //hogy a hívásokat felpakolom egy listára, és a listát adom át
-            DataStore.FuncDef processList;
+            DataStore.FuncDef processList = null;
+
+            store.ProcessData(processList);
 
             //pl:
             //processList = RemoveA;
