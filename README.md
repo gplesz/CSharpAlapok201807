@@ -1190,4 +1190,6 @@ a delegate használatához 3 (4) lépésre van szükség, hogy tudnánk ezeket a
 ### Házi Feladat
 - A 09 delegate példával játszani: több hívást tenni egy listára
 - A múlt csütörtöki alkalom kódját átnézni még egyszer
-
+- végiggondolni: 
+	- egy olyan program vázát megírni, aminek a betöltése sokáig tart és több lépésből áll, 
+	- biztosítani, hogy a lépések végén a felhasználói felület és a naplózás erről értesül
