@@ -2,9 +2,9 @@
 
 namespace _01ObserverPattern
 {
-    public class UserInterface : IMessage
+    public class UserInterface : INotifiable
     {
-        public void Message(int data)
+        public void Message(IMessage data)
         {
             Console.WriteLine($"UserInterface: {data}");
         }

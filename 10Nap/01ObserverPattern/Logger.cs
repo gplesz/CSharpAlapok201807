@@ -2,9 +2,9 @@
 
 namespace _01ObserverPattern
 {
-    public class Logger : IMessage
+    public class Logger : INotifiable
     {
-        public void Message(int data)
+        public void Message(IMessage data)
         {
             Console.WriteLine($"Logger: {data}");
         }

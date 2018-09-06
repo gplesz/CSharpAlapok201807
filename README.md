@@ -1273,6 +1273,12 @@ Példa erős kohéziójú osztályokra:
 	- [X] érjük el, hogy ne a LongRunnigProcess legyen a teljhatalom (Dependency Injection-DI, IMessage)
 	- [X] érjük el, hogy ne kelljen pontosan megmondani, hogy hány megfigyelő van (params argumentumok használata)
 	- [X] érjük el, hogy ne csak a konstruktorban lehessen kijelölni a megfigyelőket, hanem menet közben fel- és leiratkozni is lehessen
+	- [X] érjük el, hogy az értesítés tartalma az ne a függvény szignatúrájában legyen meghatározva, 
+	      - hanem egy DTO segítségével
+		  - ami a hosszan futó folyamat példányát fogja átadni, hogy minden információt a megfigyelő (log, ui, stb.) lekérdezhessen
+		  - de nem szeretnénk erős csatolást létrehozni visszafelé, így létrehozunk egy felületet (indirekció, IMessage)
+		  - mivel ez a felületnév (IMessage) ide kézenfekvőbb, az előzőt átnevezzük (IMessage->INotifiable)
+		
 
 
 - [ ] Hogy lehetne ezt a kérdést megoldani delegate-tel?

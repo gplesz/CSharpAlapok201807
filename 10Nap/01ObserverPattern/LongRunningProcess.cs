@@ -9,15 +9,15 @@ namespace _01ObserverPattern
     /// Ő értesíti a többieket, ha valami történt
     /// Megfigyelhető/megfigyelt szereplő (Observeble)
     /// </summary>
-    public class LongRunningProcess
+    public class LongRunningProcess : IMessage
     {
-        private readonly List<IMessage> observers = new List<IMessage>();
+        private readonly List<INotifiable> observers = new List<INotifiable>();
 
         /// <summary>
         /// A megfigyelők listájára történő feliratkozást intézi
         /// </summary>
         /// <param name="observer">feliratkozandó osztály</param>
-        public void Subscribe(IMessage observer)
+        public void Subscribe(INotifiable observer)
         {
             observers.Add(observer);
         }
@@ -26,7 +26,7 @@ namespace _01ObserverPattern
         /// A megfigyelők listájáról történő leiratkozást intézi
         /// </summary>
         /// <param name="observer">leiratkozandó osztály</param>
-        public void Unsubscribe(IMessage observer)
+        public void Unsubscribe(INotifiable observer)
         {
             observers.Remove(observer);
         }
@@ -36,34 +36,33 @@ namespace _01ObserverPattern
             Console.WriteLine("LongRunningProcess: 0%");
 
             //todo: értesíteni a kíváncsiskodókat (Observer)
-            SendMessage(0);
+            SendMessage();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 25%");
-            SendMessage(25);
+            SendMessage();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 50%");
-            SendMessage(50);
+            SendMessage();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 75%");
-            SendMessage(75);
+            SendMessage();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 100%");
-            SendMessage(100);
+            SendMessage();
         }
 
         /// <summary>
         /// értesítjük az összes megfigyelőt
         /// </summary>
-        /// <param name="data">az információ, amit küldenem kell</param>
-        private void SendMessage(int data)
+        private void SendMessage()
         {
             foreach (var observer in observers)
             {
-                observer.Message(data);
+                observer.Message(this);
             }
         }
     }
