@@ -16,6 +16,10 @@ namespace _01ObserverPattern
 
             //a hosszantartó folyamatunk
             var process = new LongRunningProcess(log, ui);
+            //így is meghívhatnánk a params kulcsszó használatának hála:
+            //process = new LongRunningProcess();
+            //process = new LongRunningProcess(log);
+            //process = new LongRunningProcess(log, ui, log, log);
 
             process.Start();
 
