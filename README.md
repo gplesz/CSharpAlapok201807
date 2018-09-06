@@ -1193,3 +1193,82 @@ a delegate használatához 3 (4) lépésre van szükség, hogy tudnánk ezeket a
 - végiggondolni: 
 	- egy olyan program vázát megírni, aminek a betöltése sokáig tart és több lépésből áll, 
 	- biztosítani, hogy a lépések végén a felhasználói felület és a naplózás erről értesül
+
+### Feladatok
+- [ ] Megfigyelő minta megismerése (Observer Pattern)
+	- egy olyan program vázát megírni, aminek a betöltése sokáig tart és több lépésből áll, 
+	- biztosítani, hogy a lépések végén a felhasználói felület és a naplózás erről értesül
+    - A jó objektumorientált program ismérvei: High Cohesion - Low Coupling
+	  - Erős kohézió (kohézió: **osztályon belül** az osztály egyes elemeinek a felelősségi köre mennyire hasonló? 
+	    Minél inkább az, annál nagyobb a kohézió. 
+		[GRASP alapelvek](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)))
+
+Példa gyenge kohézióra:
+```
+ Űrlapok
++--------------------------+
+|                          |
+|  Bekérik az adatokat     |
+|  Validálják az adatokat  |   +----------------->
+|  Meghatározzák az adatoka|                     |
+|  Jogosultságok kezelése  |                     |
+|  Elmentik az adatokat    |                     |
++--------------------------+                     |                    Adatbázis
+                                                 |                   +------------------------+
+                                                 |                   |                        |
++--------------------------+                     |                   |                        |
+|                          |                     |                   |                        |
+|                          |                     |                   |                        |
+|                          | +-----------------> |                   |                        |
+|                          |                     +---------------->  |                        |
+|                          |                     ^                   |                        |
++--------------------------+                     |                   |                        |
+                                                 |                   |                        |
+                                                 |                   |                        |
++---------------------------+                    |                   +------------------------+
+|                           |                    |
+|                           |                    |
+|                           | +------------------>
+|                           |
+|                           |
++---------------------------+
+```
+
+Példa erős kohéziójú osztályokra:
+```
+ Űrlapok                          Meghatározzák az adatoka
++--------------------------+      +--------------+
+|                          |      | Üzleti logika|
+|  Bekérik az adatokat     | +--> |              |
+|  Validálják az adatokat  |      |              |
+|                          |      +------+-------+
+|                          |             |
+|                          |             v
++--------------------------+      Jogosultságok kezelése              Adatbázis
+                                  +--------------+                   +------------------------+
+                                  |              |                   |                        |
++--------------------------+      | Jogosultság  |                   |                        |
+|                          |      | kezelés      |                   |                        |
+|                          |      |              |                   |                        |
+|                          |      +-------+------+           ^-----> |                        |
+|                          |              v                  |       |                        |
+|                          |      Elmentik az adatokat       |       |                        |
++--------------------------+      +--------------+           |       |                        |
+                                  |Adatbázis     |           |       |                        |
+                                  |kezelés       | +--------->       |                        |
++---------------------------+     |(repository)  |                   +------------------------+
+|                           |     |              |
+|                           |     +--------------+
+|                           |
+|                           |
+|                           |
++---------------------------+
+```
+
+	  - Gyenge csatolás (csatolás: **két osztály közötti** csatolás azt jelenti, 
+	    hogy mennyire valószínű, hogy egyik változtatása esetén a másikon is változtatni kell)
+		Gyenge csatolás: ha az egyik módosul, akkor kizárható, hogy a másikat is módosítanom kell
+		Példa: ha az adatbázis változik, **kizárható**, hogy az űrlapon változtatni kelljen.
+
+- [ ] Hogy lehetne ezt a kérdést megoldani delegate-tel?
+- [ ] Új nyelvi elem: események (Events)
