@@ -20,6 +20,14 @@ namespace _01ObserverPattern
             process.ObserversCallList += log.Message;
             process.ObserversCallList += ui.Message;
 
+            ///Problémák: 
+            ///1. a híváslistát tudom kívülről inicializálni
+
+            //process.ObserversCallList = null;
+
+            ///2. a híváslistát meg tudom hívni kívülről
+            //process.ObserversCallList(new LongRunningProcess());
+
             process.Start();
 
             process.ObserversCallList -= log.Message;
