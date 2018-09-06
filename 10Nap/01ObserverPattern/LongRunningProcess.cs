@@ -36,31 +36,37 @@ namespace _01ObserverPattern
             Console.WriteLine("LongRunningProcess: 0%");
             Data = 0;
 
-            //todo: értesíteni a kíváncsiskodókat (Observer)
-            SendMessage();
-
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 25%");
             Data = 25;
-            SendMessage();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 50%");
             Data = 50;
-            SendMessage();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 75%");
             Data = 75;
-            SendMessage();
 
             Thread.Sleep(1000);
             Console.WriteLine("LongRunningProcess: 100%");
             Data = 100;
-            SendMessage();
         }
 
-        public int Data { get; set; }
+        private int data;
+        public int Data
+        {
+            get { return data; }
+                
+            set
+            {
+                if (data == value) { return; } //ha nem változott, akkor "ne pánikoljunk"
+
+                data = value;
+                //todo: értesíteni a kíváncsiskodókat (Observer)
+                SendMessage();
+            }
+        }
 
         //ha szeretnénk több információt megosztani
         //a figyelőkkel, akkor ezt fel kell venni 
