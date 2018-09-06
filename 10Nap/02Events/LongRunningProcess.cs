@@ -9,13 +9,26 @@ namespace _01ObserverPattern
     /// Ő értesíti a többieket, ha valami történt
     /// Megfigyelhető/megfigyelt szereplő (Observeble)
     /// </summary>
-    public class LongRunningProcess : IMessage
+    public class LongRunningProcess
     {
-        //Ilyen értesítést tudunk hívni, így ilyeneket engedünk a híváslistára
-        public delegate void MessageDef(IMessage data);
+        //definiáljuk az eseményt
+        //ami egyben  
+        //1. delegate típusdefinicó és
+        //2. delegate hiváslista változó deklaráció
+        // 
+        //
+        // ez egy különleges delegate-et definiál:
+        // a.) csak void típusú függvényt definiál
+        // b.) ezt a híváslistát nem lehet az osztályon kívülről meghívni
+        // c.) ezt a híváslistát nem lehet osztályon kívülről inicializálni (= művelet)
 
-        //ez pedig a híváslistánk:
-        public MessageDef ObserversCallList;
+        public event EventHandler<string> DataChanged;
+        // a függvénynek két paramétere van minden esetben:
+        // ha a definíció EventHandler<T> akkor:
+        // object sender, 
+        //és
+        // T e
+        //az első kötelező, a másodikat a generikus paraméter jelöli ki
 
         public void Start()
         {
@@ -64,10 +77,10 @@ namespace _01ObserverPattern
         /// </summary>
         private void SendMessage()
         {
-            var callList = ObserversCallList;
+            var callList = DataChanged;
             if (callList != null)
             {
-                callList(this);
+                callList(this, "hupsz, ez itt az esemény");
             }
             //gyorsabban ugyanez
             //ObserversCallList?.Invoke(this);

@@ -17,8 +17,8 @@ namespace _01ObserverPattern
             //a hosszantartó folyamatunk
             var process = new LongRunningProcess();
 
-            process.ObserversCallList += log.Message;
-            process.ObserversCallList += ui.Message;
+            process.DataChanged += log.Message;
+            process.DataChanged += ui.Message;
 
             ///Problémák: 
             ///1. a híváslistát tudom kívülről inicializálni
@@ -30,8 +30,8 @@ namespace _01ObserverPattern
 
             process.Start();
 
-            process.ObserversCallList -= log.Message;
-            process.ObserversCallList -= ui.Message;
+            process.DataChanged -= log.Message;
+            process.DataChanged -= ui.Message;
 
             Console.WriteLine("A folyamat lefutott");
 
