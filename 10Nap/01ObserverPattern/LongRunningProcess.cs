@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace _01ObserverPattern
@@ -10,11 +11,24 @@ namespace _01ObserverPattern
     /// </summary>
     public class LongRunningProcess
     {
-        private readonly IMessage[] observers;
+        private readonly List<IMessage> observers = new List<IMessage>();
 
-        public LongRunningProcess(params IMessage[] observers)
+        /// <summary>
+        /// A megfigyelők listájára történő feliratkozást intézi
+        /// </summary>
+        /// <param name="observer">feliratkozandó osztály</param>
+        public void Subscribe(IMessage observer)
         {
-            this.observers = observers ?? throw new ArgumentNullException(nameof(observers));
+            observers.Add(observer);
+        }
+
+        /// <summary>
+        /// A megfigyelők listájáról történő leiratkozást intézi
+        /// </summary>
+        /// <param name="observer">leiratkozandó osztály</param>
+        public void Unsubscribe(IMessage observer)
+        {
+            observers.Remove(observer);
         }
 
         public void Start()

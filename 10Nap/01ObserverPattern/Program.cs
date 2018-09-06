@@ -15,13 +15,15 @@ namespace _01ObserverPattern
             var ui = new UserInterface();
 
             //a hosszantartó folyamatunk
-            var process = new LongRunningProcess(log, ui);
-            //így is meghívhatnánk a params kulcsszó használatának hála:
-            //process = new LongRunningProcess();
-            //process = new LongRunningProcess(log);
-            //process = new LongRunningProcess(log, ui, log, log);
+            var process = new LongRunningProcess();
+
+            process.Subscribe(log);
+            process.Subscribe(ui);
 
             process.Start();
+
+            process.Unsubscribe(log);
+            process.Unsubscribe(ui);
 
             Console.WriteLine("A folyamat lefutott");
 

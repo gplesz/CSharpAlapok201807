@@ -1270,5 +1270,10 @@ Példa erős kohéziójú osztályokra:
 		Gyenge csatolás: ha az egyik módosul, akkor kizárható, hogy a másikat is módosítanom kell
 		Példa: ha az adatbázis változik, **kizárható**, hogy az űrlapon változtatni kelljen.
 
+	- [X] érjük el, hogy ne a LongRunnigProcess legyen a teljhatalom (Dependency Injection-DI, IMessage)
+	- [X] érjük el, hogy ne kelljen pontosan megmondani, hogy hány megfigyelő van (params argumentumok használata)
+	- [X] érjük el, hogy ne csak a konstruktorban lehessen kijelölni a megfigyelőket, hanem menet közben fel- és leiratkozni is lehessen
+
+
 - [ ] Hogy lehetne ezt a kérdést megoldani delegate-tel?
 - [ ] Új nyelvi elem: események (Events)
