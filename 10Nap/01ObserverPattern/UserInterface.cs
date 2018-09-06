@@ -6,7 +6,7 @@ namespace _01ObserverPattern
     {
         public void Message(IMessage data)
         {
-            Console.WriteLine($"UserInterface: {data}");
+            Console.WriteLine($"UserInterface: {data.Data}");
         }
     }
 }
