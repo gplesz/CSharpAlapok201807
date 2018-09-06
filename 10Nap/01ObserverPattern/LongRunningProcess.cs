@@ -10,10 +10,10 @@ namespace _01ObserverPattern
     /// </summary>
     public class LongRunningProcess
     {
-        private Logger log;
-        private UserInterface ui;
+        private IMessage log;
+        private IMessage ui;
 
-        public LongRunningProcess(Logger log, UserInterface ui)
+        public LongRunningProcess(IMessage log, IMessage ui)
         {
             this.log = log;
             this.ui = ui;

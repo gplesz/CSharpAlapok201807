@@ -2,7 +2,7 @@
 
 namespace _01ObserverPattern
 {
-    public class UserInterface
+    public class UserInterface : IMessage
     {
         public void Message(int data)
         {
