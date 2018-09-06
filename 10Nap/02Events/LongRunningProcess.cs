@@ -22,13 +22,18 @@ namespace _01ObserverPattern
         // b.) ezt a híváslistát nem lehet az osztályon kívülről meghívni
         // c.) ezt a híváslistát nem lehet osztályon kívülről inicializálni (= művelet)
 
-        public event EventHandler<string> DataChanged;
         // a függvénynek két paramétere van minden esetben:
         // ha a definíció EventHandler<T> akkor:
         // object sender, 
         //és
         // T e
         //az első kötelező, a másodikat a generikus paraméter jelöli ki
+        //ha nem akarok paramétert kiemelni, akkor ez egy üres definíció, 
+        //public event EventHandler<EventArgs> DataChanged;
+
+        //különben mindenképpen Dto-t kell definiálni, ami le van származtatva az EventArgs-ból
+        public event EventHandler<EventDto> DataChanged;
+
 
         public void Start()
         {
@@ -72,19 +77,32 @@ namespace _01ObserverPattern
         //a felületbe és készen is vagyunk
         public string Text { get; set; }
 
+
+        /// <summary>
+        /// Az eseménylista hívását beburkoljuk egy private függvényba
+        /// </summary>
+        /// <param name="data"></param>
+        private void OnDataChanged(int data)
+        {
+            var callList = DataChanged;
+            if (callList != null)
+            {
+                //ha nincs kiemelt paraméter, akkor így hívunk:
+                //callList(this, EventArgs.Empty);
+
+                callList(this, new EventDto(data));
+            }
+            //gyorsabban ugyanez
+            //ObserversCallList?.Invoke(this);
+        }
+
+
         /// <summary>
         /// értesítjük az összes megfigyelőt
         /// </summary>
         private void SendMessage()
         {
-            var callList = DataChanged;
-            if (callList != null)
-            {
-                callList(this, "hupsz, ez itt az esemény");
-            }
-            //gyorsabban ugyanez
-            //ObserversCallList?.Invoke(this);
-
+            OnDataChanged(Data);
         }
     }
 }

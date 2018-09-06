@@ -25,8 +25,15 @@ namespace _01ObserverPattern
 
             //process.ObserversCallList = null;
 
+            //eseménynél ezt már a fordító sem engedi:
+            //process.DataChanged = null;
+
+
             ///2. a híváslistát meg tudom hívni kívülről
             //process.ObserversCallList(new LongRunningProcess());
+
+            //eseménynél ezt már a fordító sem engedi:
+            //process.DataChanged(new LongRunningProcess(), "csaltam");
 
             process.Start();
 
