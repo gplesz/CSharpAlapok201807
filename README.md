@@ -1346,4 +1346,6 @@ Irás      +--------------------------------------------------------------------
 	  - ki kell választani a megfelelő projektet
 	  - FIGYELEM: a connectionStringben nem kell két visszaperjel, 
 	  **Scaffold-DbContext "Server=.\SQLEXPRESS;Database=CodeFirstDB;Trusted_Connection=True;"  Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models**
-	  
+
+### Házi Feladat
+- adatok írása és olvasása az utolsó két projektben
