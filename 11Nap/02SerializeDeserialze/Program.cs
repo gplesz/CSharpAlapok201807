@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace _02SerializeDeserialze
 {
@@ -22,7 +24,14 @@ namespace _02SerializeDeserialze
             dataList.Data.Add(data);
             dataList.Data.Add(data);
 
-            Console.WriteLine("Hello World!");
+            var fileName = "data.txt";
+
+            var serializer = new XmlSerializer(typeof(DataList));
+
+            using (var fs = new FileStream(fileName, FileMode.Create))
+            {
+                serializer.Serialize(fs, dataList);
+            }
         }
     }
 
