@@ -1314,10 +1314,17 @@ Irás      +--------------------------------------------------------------------
 #### Adatbázisok használatának megközelítései
 - EntityFrameWork ([Full] .Net Framework, Windows környezethez)
   - Code First approach
+	- már részletesen megbeszéltük [az étterem projekttel](https://app.netacademia.hu/Tanfolyam/2018Restaurant-betekintes-az-objektumorientalt-programozasba-a-weben-is-az-etterem-projekt) kapcsolatosan, itt most csak hivatkozok rá
   - Data First approach
 
 - EntityFrameworkCore (.Net Core, multiplatform)
   - Code First approach
+	telepíteni kell ezeket a nuget-eket:
+	- Microsoft.EntityFrameworkCore
+	- Microsoft.EntityFrameworkCore.Tools
+
+  - Migrációs parancsok (command prompt-ból a project mappájában)
+	- dotnet ef migrations add "create teacher and subject tables"
   - Data First approach
  
 
