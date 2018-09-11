@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -26,12 +27,23 @@ namespace _02SerializeDeserialze
 
             var fileName = "data.txt";
 
-            var serializer = new XmlSerializer(typeof(DataList));
 
+            //adatok írása
+            var serializer = new XmlSerializer(typeof(DataList));
             using (var fs = new FileStream(fileName, FileMode.Create))
             {
                 serializer.Serialize(fs, dataList);
             }
+
+            //adatok olvasása
+            using (var fs = new FileStream(fileName, FileMode.Open))
+            {
+                var beolvasott = serializer.Deserialize(fs);
+                Console.WriteLine($"sorok száma: {((DataList)beolvasott).Data.Count}");
+                Console.WriteLine(JsonConvert.SerializeObject(beolvasott,Formatting.Indented));
+            }
+
+            Console.ReadLine();
         }
     }
 
