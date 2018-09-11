@@ -1319,12 +1319,20 @@ Irás      +--------------------------------------------------------------------
 
 - EntityFrameworkCore (.Net Core, multiplatform)
   - Code First approach
-	telepíteni kell ezeket a nuget-eket:
-	- Microsoft.EntityFrameworkCore
-	- Microsoft.EntityFrameworkCore.Tools
+	- telepíteni kell ezeket a nuget-eket:
+	  - Microsoft.EntityFrameworkCore
+	  - Microsoft.EntityFrameworkCore.Tools
+	  - Microsoft.EntityFrameworkCore.SqlServer
+	- készíteni kell modell osztályokat
+	- ezeket meg kell hivatkozni a Context osztályunkból (ami leszármazik a DbContext-ből)
+	- ahhoz, hogy paraméterezhessünk, kell egy olyan konstruktor a Context osztályunkba, ami átvesz és a base felé átad DbContextOptions példányt
+	- ahhoz, hogy használhassuk ezt a dotnet tooling-ból, kell egy Factory osztály
 
-  - Migrációs parancsok (command prompt-ból a project mappájában)
-	- dotnet ef migrations add "create teacher and subject tables"
+	- Migrációs parancsok (command prompt-ból a project mappájában)
+	  - **dotnet ef migrations add "create teacher and subject tables"** egy migrációt hozzáad
+	  - **dotnet ef migrations remove** az utolsó migrációs lépést törli
+	  - TILOS kézzel migrációt törölni
+
   - Data First approach
  
 
