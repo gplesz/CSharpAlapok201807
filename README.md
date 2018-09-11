@@ -1318,7 +1318,9 @@ Irás      +--------------------------------------------------------------------
   - Data First approach
 
 - EntityFrameworkCore (.Net Core, multiplatform)
-  - Code First approach
+  - [Használható adatbázisok](https://docs.microsoft.com/en-us/ef/core/providers/)
+    
+  - Code First approach (A Core alapértelmezett megoldása, ezt támogatja igazán)
 	- telepíteni kell ezeket a nuget-eket:
 	  - Microsoft.EntityFrameworkCore
 	  - Microsoft.EntityFrameworkCore.Tools
@@ -1334,5 +1336,14 @@ Irás      +--------------------------------------------------------------------
 	  - TILOS kézzel migrációt törölni
 
   - Data First approach
- 
-
+	- Létező adatbázishoz szeretnénk alkalmazást készíteni
+	- telepíteni kell ezeket a nuget-eket:
+	  - Microsoft.EntityFrameworkCore
+	  - Microsoft.EntityFrameworkCore.Tools
+	  - Microsoft.EntityFrameworkCore.SqlServer
+	- parancs: 
+	  - Scaffold-DbContext a **package manager consol**-ba
+	  - ki kell választani a megfelelő projektet
+	  - FIGYELEM: a connectionStringben nem kell két visszaperjel, 
+	  **Scaffold-DbContext "Server=.\SQLEXPRESS;Database=CodeFirstDB;Trusted_Connection=True;"  Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models**
+	  
