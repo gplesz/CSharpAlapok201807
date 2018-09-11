@@ -1291,9 +1291,25 @@ Példa erős kohéziójú osztályokra:
 	- Directory, DirectoryInfo
 	- Path
 
-- Stream fogalma, 
-	- ByteStream 
-	- TextStream
+- Stream fogalma
+```
+                         Stream
+Irás      +--------------------------------------------------------------------+  Ol^asás
++----->   |                                                                    |  +-------->
+          |                                                                    |
+          +--------------------------------------------------------------------+
+```
+	- Fontos tudnivalók
+		- számok egymásután állított sorozata
+		- csak szekvenciális elérésre (írásra és olvasásra) képes
+		- ugyanolyan sorrendben érkezik olvasáskor az összes jel, ahogy beírtuk
+
+	Típusok
+		- ByteStream 
+			Számoknak a sorozatát jelöli
+		- TextStream
+		    Karaktereknek a sorozatát. A textstream működése mögött mindig ott egy byte stream, és mindig történik egy konverzió állományba íráskor és olvasáskor.
+			A karakterkódolást mindig a beállított értéknek megfelelően végzi, nem lehet automatikusan megállapítani, hogy egy szöveg milyen kódolást használ. Ezt mindig nekünk kell beállítani.
 
 #### Adatbázisok használatának megközelítései
 - EntityFrameWork ([Full] .Net Framework, Windows környezethez)
