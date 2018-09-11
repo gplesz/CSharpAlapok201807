@@ -71,6 +71,7 @@ namespace _01LocalData
             //File.ReadAllLines
             //File.ReadAllText
 
+
             //Meglévő állományhoz tudunk hozzáfűzni:
             //File.AppendAllLines
             //File.AppendAllText
@@ -81,6 +82,22 @@ namespace _01LocalData
             var info = new FileInfo(fileName);
 
             Console.WriteLine($"Ez egy könyvtár: {info.Attributes.HasFlag(FileAttributes.Directory)}");
+
+            //stream használat
+
+            Console.WriteLine("Stream alapszintű kezelése");
+
+            using (var fs = new FileStream(fileName, FileMode.Open))
+            {
+                using (var sr = new StreamReader(fs, Encoding.UTF8))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        var text = sr.ReadLine();
+                        Console.WriteLine(text);
+                    }
+                }
+            }
 
             Console.ReadLine();
         }
