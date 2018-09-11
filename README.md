@@ -1281,5 +1281,27 @@ Példa erős kohéziójú osztályokra:
 		
 
 
-- [ ] Hogy lehetne ezt a kérdést megoldani delegate-tel?
-- [ ] Új nyelvi elem: események (Events)
+- [X] Hogy lehetne ezt a kérdést megoldani delegate-tel?
+- [X] Új nyelvi elem: események (Events)
+
+### Feladatok
+#### Helyi adatok elérése, használata
+- Statikus osztályok
+	- File, FileInfo
+	- Directory, DirectoryInfo
+	- Path
+
+- Stream fogalma, 
+	- ByteStream 
+	- TextStream
+
+#### Adatbázisok használatának megközelítései
+- EntityFrameWork ([Full] .Net Framework, Windows környezethez)
+  - Code First approach
+  - Data First approach
+
+- EntityFrameworkCore (.Net Core, multiplatform)
+  - Code First approach
+  - Data First approach
+ 
+
