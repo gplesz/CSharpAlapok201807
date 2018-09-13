@@ -1390,8 +1390,9 @@ Irás      +--------------------------------------------------------------------
 
 ### Feladatok
   - [X] Data First approach .NET Framework környezetben (EntityFramework 6.x)
-  - [ ] ADO.NET adatkezelés (+ CRUD tesztek: Create, Read, Update, Delete), mindezt [TDD-vel]
-  - [ ] Távoli adatok elérése (Rest API hívás)
+  - [X] ADO.NET adatkezelés (+ CRUD tesztek: Create, Read, Update, Delete, List), mindezt [TDD-vel]
+  - [X] Távoli adatok elérése (Rest API hívás)
+	- [RestSharp használata](http://restsharp.org/)
   - [ ] Task-ok kezelése
 
 
