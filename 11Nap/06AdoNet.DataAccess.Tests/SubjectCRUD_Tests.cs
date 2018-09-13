@@ -60,6 +60,12 @@ namespace _06AdoNet.DataAccess.Tests
             Assert.IsNotNull(createdTeacher);
             Assert.AreEqual("Magyar Nyelv és Irodalom", createdTeacher.TeacherName);
             Assert.AreEqual(id, createdTeacher.Id);
+
+            //A teszt ismételhetővé tétele (nagyon fontos!)
+            //visszaállítjuk a teszt előtti állapotot
+            var affected = dal.TeacherDelete(id);
+            Assert.AreEqual(1, affected);
+
         }
 
         [TestMethod]
@@ -67,12 +73,31 @@ namespace _06AdoNet.DataAccess.Tests
         {
             //Act
             var dal = new DataAccessLayer(connectionString);
+            //A teszt ismételhetővé tétele (nagyon fontos!)
+            //előre rögzítjük a törlendő rekordot
+            var teacherToDelete = new Teacher() { TeacherName = "Magyar Nyelv és Irodalom" };
+            var id = dal.TeacherCreate(teacherToDelete);
+            Assert.AreNotEqual(0, id);
+
+            //második körös ellenőrzés, ha nagyon biztosak akarunk lenni
+            var createdTeacher = dal.TeacherRead(id);
+            Assert.IsNotNull(createdTeacher);
+            Assert.AreEqual("Magyar Nyelv és Irodalom", createdTeacher.TeacherName);
+            Assert.AreEqual(id, createdTeacher.Id);
 
             //Arrange
-            int affectedRows = dal.TeacherDelete(2);
+            int affectedRows = dal.TeacherDelete(id);
 
             //Assert
             Assert.AreEqual(1, affectedRows);
+
+            //A teszt ismételhetővé tétele (nagyon fontos!)
+            //visszaállítjuk a teszt előtti állapotot
+
+            //ha utólag visszük fel a rekordot, akkor
+            //a probléma, amit meg kell oldani, hogy az azonosítót nem tudjuk csak úgy megadni
+            //ahhoz ki kell kapcsolni az Identity szabályt az SQL szerveren
+            //ezért nem itt oldjuk meg, hanem a teszt előtt
 
         }
 
