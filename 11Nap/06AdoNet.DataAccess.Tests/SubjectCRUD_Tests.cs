@@ -40,5 +40,30 @@ namespace _06AdoNet.DataAccess.Tests
             Assert.IsNull(teacher);
         }
 
+        [TestMethod]
+        public void TeacherCreate()
+        {
+            //Act
+            var dal = new DataAccessLayer(connectionString);
+            var teacherToCreate = new Teacher() { TeacherName = "Magyar Nyelv és Irodalom" };
+
+            //Arrange
+            int id = dal.TeacherCreate(teacherToCreate);
+
+            //Assert
+            //mivel az adatbázis identity 1-ről indul, 0-val jelezhetem a hibát a Create függvényből
+            //vagyis, ha 0-val jön vissza, akkor nem sikerült a felvitel
+            Assert.AreNotEqual(0, id);
+
+            //második körös ellenőrzés, ha nagyon biztosak akarunk lenni
+            var createdTeacher = dal.TeacherRead(id);
+            Assert.IsNotNull(createdTeacher);
+            Assert.AreEqual("Magyar Nyelv és Irodalom", createdTeacher.TeacherName);
+            Assert.AreEqual(id, createdTeacher.Id);
+        }
+
+
+
     }
 }
+

@@ -46,7 +46,7 @@ namespace _06AdoNet.DataAccess
                     param.Direction = System.Data.ParameterDirection.Input;
                     param.ParameterName = "@Id";
                     param.Value = id;
-                    
+
                     //a paramétert átadjuk a parancsnak
                     cmd.Parameters.Add(param);
 
@@ -70,6 +70,43 @@ namespace _06AdoNet.DataAccess
                 }
             }
 
+        }
+
+        public int TeacherCreate(Teacher teacher)
+        {
+            using (var con = new SqlConnection())
+            {
+                con.ConnectionString = connectionString;
+                con.Open();
+                using (var cmd = new SqlCommand())
+                {
+                    //Ezt a kapcsolatot használja a parancs az adatbázis azonosításához
+                    cmd.Connection = con;
+                    //@Name kívülről kitöltendő paraméter
+                    //Két parancsot futtatunk, a második visszaadja a beszúrt rekord azonosítóját
+                    cmd.CommandText = "INSERT INTO [dbo].[Teachers] ([Name]) VALUES (@Name);SELECT SCOPE_IDENTITY() as ID";
+
+                    cmd.Parameters
+                       .Add("@Name", System.Data.SqlDbType.NVarChar, -1)
+                       .Value = teacher.TeacherName;
+
+                    //lefuttatjuk a parancsot úgy, hogy a visszakapott eredményhalmazt olvasni tudjuk
+                    var reader = cmd.ExecuteReader();
+
+                    if (!reader.Read())
+                    { // nem sikerült olvasni, nem sikerült a beszúrás. 0-val térünk vissza
+                        return 0;
+                    }
+
+                    //A második lekérdezés 1 oszlopos, így a 0-s indexű oszlopra van szükségünk
+                    //a SCOPE_IDENTITY() numeric(18,0) értékkel tér vissza, ami "nem fér bele" az int32-be 
+                    //így betöltjük decimálisként
+                    var id = (int)reader.GetDecimal(0);
+
+                    return id;
+
+                }
+            }
         }
     }
 }
