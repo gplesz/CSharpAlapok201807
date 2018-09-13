@@ -86,7 +86,7 @@ namespace _06AdoNet.DataAccess.Tests
             Assert.AreEqual(id, createdTeacher.Id);
 
             //Arrange
-            int affectedRows = dal.TeacherDelete(id);
+            var affectedRows = dal.TeacherDelete(id);
 
             //Assert
             Assert.AreEqual(1, affectedRows);
@@ -98,6 +98,37 @@ namespace _06AdoNet.DataAccess.Tests
             //a probléma, amit meg kell oldani, hogy az azonosítót nem tudjuk csak úgy megadni
             //ahhoz ki kell kapcsolni az Identity szabályt az SQL szerveren
             //ezért nem itt oldjuk meg, hanem a teszt előtt
+
+        }
+
+        [TestMethod]
+        public void TeacherUpdate()
+        {
+            //Act
+            var dal = new DataAccessLayer(connectionString);
+            var teacherToUpdate = dal.TeacherRead(6);
+
+            var oldName = teacherToUpdate.TeacherName;
+
+            teacherToUpdate.TeacherName = "Módosítva";
+
+            //Arrange
+            var affectedRows = dal.TeacherUpdate(teacherToUpdate);
+
+            //Assert
+            Assert.AreEqual(1, affectedRows);
+
+            //az adatokat is ellenőrizzük
+            var updatedTeacher = dal.TeacherRead(teacherToUpdate.Id);
+            Assert.AreEqual("Módosítva", updatedTeacher.TeacherName);
+
+            //Visszaállítás (Tear Down)
+
+            teacherToUpdate.TeacherName = oldName;
+            //Arrange
+            affectedRows = dal.TeacherUpdate(teacherToUpdate);
+            Assert.AreEqual(1, affectedRows);
+
 
         }
 

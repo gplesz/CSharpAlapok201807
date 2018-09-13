@@ -133,5 +133,35 @@ namespace _06AdoNet.DataAccess
                 }
             }
         }
+
+        public int TeacherUpdate(Teacher teacher)
+        {
+            using (var con = new SqlConnection())
+            {
+                con.ConnectionString = connectionString;
+                con.Open();
+                using (var cmd = new SqlCommand())
+                {
+                    //Ezt a kapcsolatot használja a parancs az adatbázis azonosításához
+                    cmd.Connection = con;
+
+                    //@Id és a @Name a beküldhető paraméterek
+                    cmd.CommandText = "UPDATE [dbo].[Teachers] SET [Name] = @Name WHERE [Id] = @Id";
+
+                    cmd.Parameters
+                       .Add("@Id", System.Data.SqlDbType.Int)
+                       .Value = teacher.Id;
+
+                    cmd.Parameters
+                       .Add("@Name", System.Data.SqlDbType.NVarChar, -1)
+                       .Value = teacher.TeacherName;
+
+                    //Úgy futtatunk, hogy nem olvasunk eredményhalmazt
+                    var affectedRows = cmd.ExecuteNonQuery();
+
+                    return affectedRows;
+                }
+            }
+        }
     }
 }
