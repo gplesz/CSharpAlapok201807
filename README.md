@@ -1371,6 +1371,7 @@ Irás      +--------------------------------------------------------------------
 	  - **dotnet ef migrations add "create teacher and subject tables"** egy migrációt hozzáad
 	  - **dotnet ef migrations remove** az utolsó migrációs lépést törli
 	  - TILOS kézzel migrációt törölni
+	  - **dotnet ef database update** létrehozza/frissíti az adatbázist a migrációk alapján
 
   - Data First approach
 	- Létező adatbázishoz szeretnénk alkalmazást készíteni
@@ -1388,7 +1389,7 @@ Irás      +--------------------------------------------------------------------
 - adatok írása és olvasása az utolsó két projektben
 
 ### Feladatok
-  - [ ] Data First approach .NET Framework környezetben (EntityFramework 6.x)
+  - [X] Data First approach .NET Framework környezetben (EntityFramework 6.x)
   - [ ] ADO.NET adatkezelés
   - [ ] Távoli adatok elérése (Rest API hívás)
   - [ ] Task-ok kezelése

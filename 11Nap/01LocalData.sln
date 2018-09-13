@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01LocalData", "01LocalData\01LocalData.csproj", "{D66C73AF-5E70-4256-ACD7-5D87CCF9570B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01LocalData", "01LocalData\01LocalData.csproj", "{D66C73AF-5E70-4256-ACD7-5D87CCF9570B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02SerializeDeserialize", "02SerializeDeserialze\02SerializeDeserialize.csproj", "{5A91640A-CF3E-49F3-8751-9509977BD90E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03CodeFirstCore", "03CodeFirstCore\03CodeFirstCore.csproj", "{9589F1D7-1712-4DF7-AE99-5513CED9DAB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03CodeFirstCore", "03CodeFirstCore\03CodeFirstCore.csproj", "{9589F1D7-1712-4DF7-AE99-5513CED9DAB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04DataFirstCore", "04DataFirstCore\04DataFirstCore.csproj", "{23D734FA-3508-4584-B455-873C84FE81EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04DataFirstCore", "04DataFirstCore\04DataFirstCore.csproj", "{23D734FA-3508-4584-B455-873C84FE81EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05DataFirst", "05DataFirst\05DataFirst.csproj", "{5B34A206-87B1-48DB-A38D-1DE91EA91729}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{23D734FA-3508-4584-B455-873C84FE81EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D734FA-3508-4584-B455-873C84FE81EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D734FA-3508-4584-B455-873C84FE81EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B34A206-87B1-48DB-A38D-1DE91EA91729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B34A206-87B1-48DB-A38D-1DE91EA91729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B34A206-87B1-48DB-A38D-1DE91EA91729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B34A206-87B1-48DB-A38D-1DE91EA91729}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
