@@ -18,6 +18,10 @@ namespace _03CodeFirstCore
 
             var db = new CodeFirstContext(optionsBuilder.Options);
 
+            //ellenőrizni kell az adatbázis létezését
+            //és ha nem létezik, létre kell hozni.
+            db.Database.Migrate();
+
             if (db.Teachers.Count() == 0)
             { //adatok ellenőrzése
                 Seed(db);
@@ -31,8 +35,6 @@ namespace _03CodeFirstCore
 
         private static void Seed(CodeFirstContext db)
         {
-            //todo: ellenőrizni kell az adatbázis létezését
-            //todo: és ha nem létezik, létre kell hozni.
 
             var subjects = new List<Subject>();
 
