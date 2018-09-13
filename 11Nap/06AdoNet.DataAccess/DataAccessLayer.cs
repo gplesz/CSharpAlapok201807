@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -132,6 +133,47 @@ namespace _06AdoNet.DataAccess
 
                 }
             }
+        }
+
+        public List<Teacher> TeacherList()
+        {
+            var dataSet = new System.Data.DataSet();
+
+            using (var con = new SqlConnection())
+            {
+                con.ConnectionString = connectionString;
+                con.Open();
+                using (var cmd = new SqlCommand())
+                {
+                    //Ezt a kapcsolatot használja a parancs az adatbázis azonosításához
+                    cmd.Connection = con;
+
+                    //Nincs beküldhető paraméter
+                    cmd.CommandText = "SELECT [Id],[Name] FROM [dbo].[Teachers]";
+
+                    //A DataAdapter segítségével a táblázatokat betölthetem DataSet példányokba
+                    using (var da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dataSet, "Teachers");
+                    }
+                }
+            }
+
+            //A továbbiakban a dataSet-ből tudok dolgozni
+            var teachers = new List<Teacher>();
+            foreach (System.Data.DataRow row in dataSet.Tables["Teachers"].Rows)
+            { //végigmegyünk a sorokon
+                var teacher = new Teacher()
+                {
+                    Id = row.Field<int>("Id"),
+                    TeacherName = row.Field<string>("Name")
+                };
+
+                teachers.Add(teacher);
+            }
+
+            return teachers;
+
         }
 
         public int TeacherUpdate(Teacher teacher)

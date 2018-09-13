@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace _06AdoNet.DataAccess.Tests
@@ -128,6 +129,39 @@ namespace _06AdoNet.DataAccess.Tests
             //Arrange
             affectedRows = dal.TeacherUpdate(teacherToUpdate);
             Assert.AreEqual(1, affectedRows);
+
+        }
+
+        [TestMethod]
+        public void TeacherList()
+        {
+            //Act
+            var dal = new DataAccessLayer(connectionString);
+
+            //Arrange
+            var teachers = dal.TeacherList(); //továbbfejlesztés: hogy tudunk szűrni??
+
+            //Assert
+            Assert.AreEqual(5, teachers.Count);
+
+            //további vizsgálatok lehetnek:
+            var teacher = teachers[0];
+            Assert.AreEqual(1, teacher.Id);
+            Assert.AreEqual("Matektanár", teacher.TeacherName);
+
+            //todo: assert
+
+            teacher = teachers[1];
+            //todo: assert
+
+            teacher = teachers[2];
+            //todo: assert
+
+            teacher = teachers[3];
+            //todo: assert
+
+            teacher = teachers[4];
+            //todo: assert
 
 
         }
