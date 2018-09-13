@@ -48,7 +48,7 @@ namespace _06AdoNet.DataAccess.Tests
             var teacherToCreate = new Teacher() { TeacherName = "Magyar Nyelv és Irodalom" };
 
             //Arrange
-            int id = dal.TeacherCreate(teacherToCreate);
+            var id = dal.TeacherCreate(teacherToCreate);
 
             //Assert
             //mivel az adatbázis identity 1-ről indul, 0-val jelezhetem a hibát a Create függvényből
@@ -62,7 +62,19 @@ namespace _06AdoNet.DataAccess.Tests
             Assert.AreEqual(id, createdTeacher.Id);
         }
 
+        [TestMethod]
+        public void TeacherDelete()
+        {
+            //Act
+            var dal = new DataAccessLayer(connectionString);
 
+            //Arrange
+            int affectedRows = dal.TeacherDelete(2);
+
+            //Assert
+            Assert.AreEqual(1, affectedRows);
+
+        }
 
     }
 }

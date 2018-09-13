@@ -69,7 +69,32 @@ namespace _06AdoNet.DataAccess
                     return teacher;
                 }
             }
+        }
 
+        public int TeacherDelete(int id)
+        {
+            using (var con = new SqlConnection())
+            {
+                con.ConnectionString = connectionString;
+                con.Open();
+                using (var cmd = new SqlCommand())
+                {
+                    //Ezt a kapcsolatot használja a parancs az adatbázis azonosításához
+                    cmd.Connection = con;
+
+                    //@Id a beküldhető paraméter
+                    cmd.CommandText = "DELETE FROM [dbo].[Teachers] WHERE [Id] = @Id";
+
+                    cmd.Parameters
+                       .Add("@Id", System.Data.SqlDbType.Int)
+                       .Value = id;
+
+                    //Úgy futtatunk, hogy nem olvasunk eredményhalmazt
+                    var affectedRows = cmd.ExecuteNonQuery();
+
+                    return affectedRows;
+                }
+            }
         }
 
         public int TeacherCreate(Teacher teacher)
