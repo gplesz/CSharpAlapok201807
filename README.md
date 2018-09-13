@@ -1319,6 +1319,43 @@ Irás      +--------------------------------------------------------------------
 
 - EntityFrameworkCore (.Net Core, multiplatform)
   - [Használható adatbázisok](https://docs.microsoft.com/en-us/ef/core/providers/)
+
+  ```
+                                               ORM: Object Relational Mapper
+
+
+   Alkalmazás                                                               Adatbázis
++------------------------------------------+   EntityFramework (Core)     +---------------------------------------------+
+|                                          |  +------------------------+  |                                             |
+|                     Adatokat             |  |                        |  |                                             |
+|                    +reprezentáló---+     |  |                        |  |          +-------------+                    |
+|                    |osztályok      |     |  |   Code First           |  |          |             |                    |
+|                    |               |     |  | +--------------------> |  |          |             |                    |
+|                    |               |     |  |                        |  |     <----+             +------->            |
+|                    |               |     |  |   Data First           |  |     |    |             |       |            |
+|                    |               |     |  | <--------------------+ |  |     |    |             |       |            |
+|                    |               |     |  |                        |  |     |    +-------------+       |            |
+|                    |               |     |  |                        |  |     v                          |            |
+|                    |               |     |  |                        |  |                                |            |
+|                    |               |     |  |                        |  |   +-----------+                |            |
+|                    |               |     |  |                        |  |   |           |                v            |
+|                    |               |     |  |                        |  |   |           |                             |
+|                    |               |     |  |                        |  |   |           |   +---------------+         |
+|                    |               |     |  |                        |  |   |           |   |               |         |
+|                    +---------------+     |  +------------------------+  |   +-----------+   |               |         |
+|                                          |                              |                   |               |         |
+|                                          |                              |                   |               |         |
+|                                          |                              |                   |               |         |
+|                                          |                              |                   +---------------+         |
+|                                          |                              |                                             |
+|                                          |                              |                                             |
+|                                          |                              |                                             |
+|                                          |                              |                                             |
+|                                          |                              |                                             |
+|                                          |                              |                                             |
+|                                          |                              |                                             |
++------------------------------------------+                              +---------------------------------------------+
+  ```
     
   - Code First approach (A Core alapértelmezett megoldása, ezt támogatja igazán)
 	- telepíteni kell ezeket a nuget-eket:
@@ -1349,3 +1386,12 @@ Irás      +--------------------------------------------------------------------
 
 ### Házi Feladat
 - adatok írása és olvasása az utolsó két projektben
+
+### Feladatok
+  - [ ] Data First approach .NET Framework környezetben (EntityFramework 6.x)
+  - [ ] ADO.NET adatkezelés
+  - [ ] Távoli adatok elérése (Rest API hívás)
+  - [ ] Task-ok kezelése
+
+
+
